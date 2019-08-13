@@ -5,3 +5,36 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "seed started.."
+
+User.destroy_all
+
+nath = User.create!(
+  email: "m.nath1105@gmail.com",
+  password: "123123",
+  first_name: "Nath",
+  last_name: "M"
+  )
+
+christee = User.create!(
+  email: "christee.song@gmail.com",
+  password: "123123",
+  first_name: "Christee",
+  last_name: "Song"
+  )
+
+shohei = User.create!(
+  email: "shohei@gmail.com",
+  password: "123123",
+  first_name: "Shohei",
+  last_name: "Okubo"
+  )
+
+huishu = User.create!(
+  email: "huishu@gmail.com",
+  password: "123123",
+  first_name: "Huishu",
+  last_name: "Jia"
+  )
+
+puts "Seed is done!"
