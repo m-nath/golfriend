@@ -51,7 +51,7 @@ puts "added #{User.count} users."
 User.all.each do |user|
   rand(1..3).times do
     Event.create!(
-      name: Faker::TvShows::GameOfThrones.character + "Golf Club",
+      name: Faker::TvShows::GameOfThrones.character + " Golf Club",
       description: Faker::TvShows::GameOfThrones.quote,
       photo: "https://source.unsplash.com/1000x700/?golfer",
       date: Faker::Date.forward(days: 100),
