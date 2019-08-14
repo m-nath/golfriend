@@ -16,14 +16,16 @@ nath = User.create!(
   email: "m.nath1105@gmail.com",
   password: "123123",
   first_name: "Nath",
-  last_name: "M"
+  last_name: "M",
+  admin: true
   )
 
 christee = User.create!(
   email: "christee.song@gmail.com",
   password: "123123",
   first_name: "Christee",
-  last_name: "Song"
+  last_name: "Song",
+  admin: true
   )
 
 shohei = User.create!(
