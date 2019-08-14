@@ -8,8 +8,9 @@
 
 puts "seed started.. for users and events"
 
-User.destroy_all if Rails.env.developement?
-Event.destroy_all if Rails.env.developement?
+Reservation.delete_all if Rails.env.development?
+Event.delete_all if Rails.env.development?
+User.delete_all if Rails.env.development?
 
 nath = User.create!(
   email: "m.nath1105@gmail.com",
@@ -56,6 +57,12 @@ User.all.each do |user|
       max_participants:rand(1..7),
       user: user
      )
+  end
+  rand(1..3).times do
+    Reservation.create!(
+      user: user,
+      event: Event.all.sample
+      )
   end
 end
 puts "added #{Event.count} events."
