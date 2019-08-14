@@ -3,22 +3,38 @@
     <div class="col-8">
 
     <div class="card-trip">
-      <%= image_tag("show-event-place-holder.jpg", :alt => "rss feed") %>
-      <div class="card-trip-infos">
+      <%= image_tag("show-event-place-holder.jpg", :alt => "event image") %>
+      <div class="card-trip-infos d-flex justify-content-between">
+
+        <div class="card h-45 w-45 bg-secondary">
+          <div class="mx-3 my-1">
+            <h5 class="m-1">13</h5>
+            <p class="m-1">Aug</p>
+          </div>
+        </div>
+
+
         <div>
           <h2>Event name</h2>
           <p>Description</p>
         </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
       </div>
     </div>
 
 
 
-      <div style="background-color: blue; height: 100px; width: 200px;" class = 'event-description'>Description
+      <div class='event-description my-2 p-3'>
+        <h5>Description</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
       </div>
-      <div style="background-color: green; height: 100px; width: 200px;" class = 'event-discussion'>Discussion
+      <div class='event-description my-2 p-3'>
+        <h5>Discussion</h2>
+          <ul>
+            <li class="d-flex">
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            </li>
+          </ul>
       </div>
     </div>
     <div class = "col-4">
