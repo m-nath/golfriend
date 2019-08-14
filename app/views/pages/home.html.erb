@@ -23,7 +23,7 @@
   <% @events.each do |event| %>
     <div class="card-trip">
       <% if event.photo.present? %>
-        <%= image_tag(event.photo) %>
+        <%= cl_image_tag(event.photo) %>
       <% else %>
         <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
       <% end %>
