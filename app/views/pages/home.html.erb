@@ -1,13 +1,14 @@
+<!-- here is the big banner -->
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "banner.jpg" %>')">
-  <div class="banner-flex">
 
+  <div class="row mx-5">
+    
     <div class="card-event">
     <% if user_signed_in? %>
-      <div class="col">
-        <div class="card-event">
+      <div class="col"">
+        <div class="card-event col-5 py-3 rounded">
           <div class="card-event-infos">
             <div>
-
               <h2>Event you signed up</h2>
               <p>Fuji Sakura Golf Club</p>
               <p>19:00 Sunday 17th August</p>
@@ -15,30 +16,33 @@
               <p><%= current_user.reserved_events.first.name %></p>
               <p><%= current_user.reservations.first.event.date%></p>
             </div>
-              <a class="btn btn-ghost" href="#">Find event</a>
+            <a class="btn btn-ghost" href="#">Find event</a>
           </div>
             <%= link_to "Find event", my_events_path, class: "btn btn-ghost" %>
-
-        </div>
+    
       </div>
     </div>
-      <div>
+                                   
 
-      <div class="col">
-        <div class="card-event">
-          <div class="card-event-infos">
-            <div>
-              <h2 class="mb-2">Event you are hosting</h2>
-              <p><%= current_user.events.first.name %></p>
-              <p><%= current_user.events.first.date%></p>
-            </div>
-              <%= link_to "Create an event", my_events_path, class: "btn btn-ghost" %>
-          </div>
+    <div class="col-2">
+    </div>
+
+    <div class="card-event col-5 py-3 rounded">
+      <div class="card-event-infos">
+        <div>
+          <h2 class="mb-2">Event you are hosting</h2>
+          <p><%= current_user.events.first.name %></p>
+          <p><%= current_user.events.first.date%></p>
         </div>
+          <%= link_to "Create an event", my_events_path, class: "btn btn-ghost" %>
       </div>
-    <% end %>
+        </div>
+        <a class="btn btn-ghost" href="#">Create an event</a>
+      </div>
+    </div>
   </div>
 </div>
+<!-- here is the big banner -->
 
 <div class="container m-4 d-flex justify-content-between">
   <div style="width: 500px">
