@@ -20,6 +20,15 @@
   transition: background 0.3s ease;
 }
 
+.btn-big-flat a {
+  color: white;
+  width: 100%;
+  padding: 6px 24px;
+  border-radius: 4px;
+  background: $light-green;
+  transition: background 0.3s ease;
+}
+
 .btn-big-flat:hover {
   background: $green;
   color: white;

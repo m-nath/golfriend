@@ -8,7 +8,7 @@
         <% if @event.photo? %>
           <%= cl_image_tag @event.photo %>
         <% else %>
-          <%= image_tag "card.jpg", class: "" %>
+          <%= image_tag "show-event-place-holder.jpg", class: "" %>
       <% end %>
 
         <div class="card-show-infos d-flex justify-content-start bottom-line">
@@ -81,7 +81,6 @@
 
     <!-- Left part 2/3 here  -->
     <div class = "col-4">
-    </div>
       <div class = "d-flex justify-content-start align-self-start">
           <div class = "text-center btn-big-flat m-2"><%= link_to "Going", event_reservations_path(@event, reservation: { :event_id => @event.id }), method:  "post" %>
           </div>
@@ -93,8 +92,13 @@
           <%# redirect_to new_user_session_path %>
         <% end %>
       </div>
+      
     <div class="mx-2 mt-3">
+      <div class = "text-center btn-big-flat m-2">Interested</div>
+      <div class = "text-center btn-ghost-square m-2"><%= link_to "Edit", edit_event_path(@event) %></div>
+    </div>
 
+    <div class="mx-2 mt-3">
         <h6>Participants</h6>
         <div class="d-flex flex-column">
           <div class="d-flex flex-row align-self-start">

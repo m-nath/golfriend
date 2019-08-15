@@ -1,6 +1,21 @@
-<title>Edit Event - Golfriend</title>
-<h1>Edit Event</h1>
+<div class="container m-5">
+  <div class="row">
 
-<%= render 'form', event: @event %>
-<br>
-<%= link_to 'Home', root_path, class: "btn btn-success" %>
+    <div class="col">
+      <%= link_to 'Back', root_path, class: "btn-ghost-square"%>
+    </div>
+
+    <div class="col-6">
+      <title>Edit Event - Golfriend</title>
+      <h2>Edit Event</h2>
+
+      <%= render 'form', event: @event %>
+      <br>
+      <%= link_to 'Home', root_path, class: "btn btn-success" %>
+    </div>
+
+    <div class="col">
+    </div>
+
+  </div>
+</div>
