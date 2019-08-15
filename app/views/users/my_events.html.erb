@@ -1,30 +1,23 @@
 <div class="container m-5">
   <h1>My Events</h1>
   <h3 class=" mb-3">Events I signed up</h3>
-
   <%  current_user.reservations.each do |reservation| %>
     <ul>
-      <li><%= reservation.event.date %></li>
-      <li><%= reservation.event.name %></li>
-      <li>
+      <li>Date: <%= reservation.event.date %></li>
+      <li>Event: <%= reservation.event.name %></li>
+      <li>Status:
         <% if reservation.confirmed? == true %>
           Confirmed
         <% else %>
           Pending
         <% end %>
-        </li>
+      </li>
     </ul>
   <% end %>
-
   <h3 class=" mb-3">Events I hosted</h3>
-    <% current_user.events.each do |event| %>
+  <% current_user.events.each do |event| %>
     <ul>
-      <li><%= event.date %></li>
-      <li><%= event.name %></li>
+      <li>Date: <%= event.date %></li>
+      <li>Time: <%= event.name %></li>
     </ul>
-    <% end %>
-
-
-
-
-
+  <% end %>
