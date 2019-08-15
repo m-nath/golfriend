@@ -43,24 +43,24 @@
 <div class="container m-5">
   <h3 class="mt-5 mb-3">Golf events you may like:  </h3>
 
-<div class="cards" >
-  <% @events.each do |event| %>
-    <div class="card-trip">
-      <% if event.photo.present? %>
-        <%= image_tag(event.photo) %>
-      <% else %>
-        <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
-      <% end %>
-      <div class="card-trip-infos">
-        <div>
-          <h2 class="mb-2"><%= event.name %></h2>
-          <p>Event date: <%= event.date %></p>
+  <div class="cards" >
+    <% @events.each do |event| %>
+      <div class="card-trip">
+        <% if event.photo.present? %>
+          <%= image_tag(event.photo) %>
+        <% else %>
+          <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
+        <% end %>
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2"><%= event.name %></h2>
+            <p>Event date: <%= event.date %></p>
+          </div>
+          <%= link_to "Details", event_path(event), class: "btn btn-flat stretched-link" %>
         </div>
-        <%= link_to "Details", event_path(event), class: "btn btn-flat stretched-link" %>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </div>
 
 
