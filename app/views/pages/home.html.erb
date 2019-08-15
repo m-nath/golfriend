@@ -1,7 +1,33 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "banner.jpg" %>')">
   <div class="banner-flex">
-      <div >TEXT</div>
-      <div >TEXT</div>
+      <div class="card-event">
+    <div class="col">
+      <div class="card-event">
+        <div class="card-event-infos">
+          <div>
+            <h2>Event you signed up</h2>
+            <p>Fuji Sakura Golf Club</p>
+            <p>19:00 Sunday 17th August</p>
+          </div>
+            <a class="btn btn-ghost" href="#">Find event</a>
+        </div>
+      </div>
+    </div>
+    </div>
+      <div>
+      <div class="col">
+        <div class="card-event">
+          <div class="card-event-infos">
+            <div>
+              <h2>Event you are hosting</h2>
+              <p>Fuji Sakura Golf Club</p>
+              <p>19:00 Sunday 17th August</p>
+            </div>
+              <a class="btn btn-ghost" href="#">Create an event</a>
+          </div>
+        </div>
+    </div>
+      </div>
   </div>
 </div>
 
@@ -24,16 +50,22 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
-</div>
 
+</div>
+<div
+  id="map"
+  style="width: 100%;
+  height: 400px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
 <div class="container m-5">
   <h3 class="mt-5 mb-3">Golf events you may like:  </h3>
-
   <div class="cards" >
     <% @events.each do |event| %>
       <div class="card-trip">
         <% if event.photo.present? %>
-          <%= image_tag(event.photo) %>
+          <%= cl_image_tag(event.photo) %>
         <% else %>
           <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
         <% end %>
@@ -48,5 +80,3 @@
     <% end %>
   </div>
 </div>
-
-
