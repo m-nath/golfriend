@@ -2,11 +2,25 @@
   color: white;
   padding: 0px 24px;
   border-radius: 4px;
-  background: #1EDD88;
+  background: $light-green;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #1BCB7F;
+  background: $green;
+  color: white;
+}
+
+.btn-big-flat {
+  color: white;
+  width: 100%;
+  padding: 6px 24px;
+  border-radius: 4px;
+  background: $light-green;
+  transition: background 0.3s ease;
+}
+
+.btn-big-flat:hover {
+  background: $green;
   color: white;
 }
