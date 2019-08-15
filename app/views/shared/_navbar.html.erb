@@ -2,11 +2,13 @@
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
-    <div class="d-flex align-items-start">
-    <h2>Golfriend</h2>
+    <div class="d-flex justify-content-start">
+      <h2>Golfriend</h2>
     </div>
-    <%= link_to "My Events", "#", class: "nav-link" %>
-    <%= link_to "Add an Event", "#", class: "nav-link" %>
+    <div class="justify-content-end">
+      <%= link_to "My Events", "#", class: "nav-link" %>
+      <%= link_to "Add an Event", "#", class: "nav-link" %>
+    </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
