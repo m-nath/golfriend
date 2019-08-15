@@ -2,6 +2,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     @event = Event.find(params[:event_id])
+    @event.user = current_user
     @reservation.event = @event
     authorize @event
     if @reservation.save
@@ -12,12 +13,14 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     @reservation.update(reservation_params)
+    @event.user = current_user
     authorize @event
     redirect_to event_path(@event)
   end
 
   def destroy
     @reservation = Reservation.find(params[:id])
+    @event.user = current_user
     @reservation.destroy
     authorize @event
     redirect_to event_path(@event)
@@ -26,6 +29,6 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:user, :event)
+    params.require(:reservation).permit(:user_id, :event_id)
   end
 end
