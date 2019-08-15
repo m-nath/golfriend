@@ -1,1 +1,30 @@
-my_events.html.erb
+<div class="container m-5">
+  <h1>My Events</h1>
+  <h3 class=" mb-3">Events I signed up</h3>
+
+  <%  current_user.reservations.each do |reservation| %>
+    <ul>
+      <li><%= reservation.event.date %></li>
+      <li><%= reservation.event.name %></li>
+      <li>
+        <% if reservation.confirmed? == true %>
+          Confirmed
+        <% else %>
+          Pending
+        <% end %>
+        </li>
+    </ul>
+  <% end %>
+
+  <h3 class=" mb-3">Events I hosted</h3>
+    <% current_user.events.each do |event| %>
+    <ul>
+      <li><%= event.date %></li>
+      <li><%= event.name %></li>
+    </ul>
+    <% end %>
+
+
+
+
+

@@ -17,6 +17,8 @@
             </div>
               <a class="btn btn-ghost" href="#">Find event</a>
           </div>
+            <%= link_to "Find event", my_events_path, class: "btn btn-ghost" %>
+
         </div>
       </div>
     </div>
@@ -30,7 +32,7 @@
               <p><%= current_user.events.first.name %></p>
               <p><%= current_user.events.first.date%></p>
             </div>
-              <a class="btn btn-ghost" href="#">Create an event</a>
+              <%= link_to "Create an event", my_events_path, class: "btn btn-ghost" %>
           </div>
         </div>
       </div>
