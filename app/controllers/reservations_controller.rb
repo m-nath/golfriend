@@ -5,7 +5,6 @@ class ReservationsController < ApplicationController
     @event.user = current_user
     @reservation.event = @event
     authorize @event
-    raise
     if @reservation.save
       redirect_to event_path(@event)
     end
@@ -14,12 +13,14 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     @reservation.update(reservation_params)
+    @event.user = current_user
     authorize @event
     redirect_to event_path(@event)
   end
 
   def destroy
     @reservation = Reservation.find(params[:id])
+    @event.user = current_user
     @reservation.destroy
     authorize @event
     redirect_to event_path(@event)
