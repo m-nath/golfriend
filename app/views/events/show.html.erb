@@ -1,49 +1,112 @@
 <div class='container m-5'>
   <div class="row">
+    <!-- Left part 2/3 here  -->
     <div class="col-8">
+      <!-- Event Card -->
+      <div class="card-show">
 
-    <div class="card-trip">
-      <%= image_tag("show-event-place-holder.jpg", :alt => "event image") %>
-      <div class="card-trip-infos d-flex justify-content-between">
+        <%= image_tag(@event.photo, :alt => "event image") %>
 
-        <div class="card h-45 w-45 bg-secondary">
-          <div class="mx-3 my-1">
-            <h5 class="m-1">13</h5>
-            <p class="m-1">Aug</p>
+        <div class="card-show-infos d-flex justify-content-start bottom-line">
+          <div class="card h-45 w-45 date-card">
+            <div class="mx-3 my-1">
+              <h5 class="m-1"><%= @event.date.to_date.day %></h5>
+              <p class="m-1">
+                <% months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] %>
+                <%= months[@event.date.to_date.month - 1] %>
+              </p>
+            </div>
+          </div>
+
+          <div class="align mx-4">
+            <h2><%= @event.name %></h2>
+            <p><%= @event.description %></p>
+          </div>
+
+          <div class="d-flex flex-column">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered" />
+            <p class="card-show-username"><%= @event.user.first_name %> <%= @event.user.last_name %></p>
           </div>
         </div>
 
-
         <div>
-          <h2>Event name</h2>
-          <p>Description</p>
+          <div class="row mx-3 my-2">
+            <i class="col-1 far fa-calendar-check"></i>
+            <p class="col-11 px-2">
+              <% weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'] %><%= weekdays[@event.date.to_date.wday] %> <%= @event.date %> at 10AM - 1PM
+            </p>
+          </div>
+          <div class="row mx-3 my-2">
+            <i class="col-1 fas fa-map-marker-alt"></i>
+            <p class="col-11 px-2"><%= @event.location %></p>
+          </div>
         </div>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+
       </div>
-    </div>
 
-
-
+      <!-- Event description -->
       <div class='event-description my-2 p-3'>
         <h5>Description</h2>
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
       </div>
+
+      <!-- Event discussion -->
       <div class='event-description my-2 p-3'>
-        <h5>Discussion</h2>
-          <ul>
-            <li class="d-flex">
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-            </li>
-          </ul>
+          <h5>Discussion</h2>
+            <div>
+              <!-- discussion list - each do for the further -->
+              <div class="d-flex justify-content-between align-self-start">
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" />
+                <div>
+                  <h6 class="m-2 pt-2">Name</h6>
+                  <p class="m-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+              </div>
+              <!-- discussion list - can be deleted later -->
+              <div class="d-flex justify-content-between align-self-start">
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" />
+                <div>
+                  <h6 class="m-2 pt-2">Name</h6>
+                  <p class="m-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+              </div>
+              <!-- ABOVE discussion list - can be deleted later -->
+            </div>
       </div>
     </div>
-    <div class = "col-4">
-      RIGHT
-    <div class = "status-button">Going
-    </div>
-    <div class = "participants">participants
-    </div>
 
-  </div>
+    <!-- Left part 2/3 here  -->
+    <div class = "col-4">
+      <div class = "d-flex justify-content-start align-self-start">
+        <div class = "text-center btn-big-flat m-2">Going
+        </div>
+        <div class = "text-center btn-big-flat m-2">Interested
+        </div>
+      </div>
+      <div class="mx-2 mt-3">
+
+        <h6>Participants</h6>
+        <div class="d-flex flex-column">
+          <div class="d-flex flex-row align-self-start">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" />
+            <h6 class="m-2 pt-2">Name</h6>
+          </div>
+          <!-- below can be deleted after each do -->
+          <div class="d-flex flex-row align-self-start">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" />
+            <h6 class="m-2 pt-2">Name</h6>
+          </div>
+          <div class="d-flex flex-row align-self-start">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" />
+            <h6 class="m-2 pt-2">Name</h6>
+          </div>
+          <div class="d-flex flex-row align-self-start">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" />
+            <h6 class="m-2 pt-2">Name</h6>
+          </div>
+          <!-- above can be deleted after each do -->
+        </div>
+      </div>
+    </div>
 </div>
 

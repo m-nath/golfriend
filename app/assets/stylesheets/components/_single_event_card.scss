@@ -1,37 +1,40 @@
-.card-trip {
+.card-show {
   overflow: hidden;
-  background: $light-gray;
+  background: $gray;
 
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-trip > img {
+.card-show > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
   object-position: 100% 85%;
 }
 
-.card-trip h2 {
+.card-show h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
   color: $black;
 }
 
-.card-trip h5 {
+.date-card{
+  color: $gray;
+}
+
+.card-show h5 {
   color: $green;
 }
 
-.card-trip p {
+.card-show p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
   color: $black;
 }
 
-
-.card-trip .card-trip-infos {
+.card-show .card-show-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -39,9 +42,19 @@
   position: relative;
 }
 
-.card-trip-infos .card-trip-user {
+.card-show-infos .card-show-user {
   position: absolute;
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.card-show-username {
+  position: absolute;
+  right: 16px;
+  top: 25px;
+}
+
+.bottom-line {
+  border-bottom: 1px solid #C4C4C4;
 }
