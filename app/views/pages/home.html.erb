@@ -7,10 +7,10 @@
           <div class="card-event-infos">
             <div>
               <h2 class="mb-2">Next event you signed up</h2>
-              <p><%= #current_user.reserved_events.first.name %></p>
-              <p><%= #current_user.reservations.first.event.date%></p>
+              <p><%= current_user.reserved_events.first.name %></p>
+              <p><%= current_user.reservations.first.event.date%></p>
             </div>
-              <a class="btn btn-ghost" href="#">Find event</a>
+            <a class="btn btn-ghost" href="#">Find event</a>
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@
               <p><%= current_user.events.first.name %></p>
               <p><%= current_user.events.first.date%></p>
             </div>
-              <a class="btn btn-ghost" href="#">Create an event</a>
+            <a class="btn btn-ghost" href="#">Create an event</a>
           </div>
         </div>
       </div>
