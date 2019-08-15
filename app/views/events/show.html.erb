@@ -77,6 +77,13 @@
 
     <!-- Left part 2/3 here  -->
     <div class = "col-4">
+    <div class>
+      <%= link_to event_reservations_path(@event), method: :post, data: { confirm: "Are you sure?" } do %>Going<% end %>
+    </div>
+    <div class = "participants">participants
+    </div>
+    <%= link_to "Edit", edit_event_path(@event) %>
+  </div>
       <div class = "d-flex justify-content-start align-self-start">
         <div class = "text-center btn-big-flat m-2">Going
         </div>

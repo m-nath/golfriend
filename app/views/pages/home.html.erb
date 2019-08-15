@@ -31,7 +31,6 @@
   </div>
 </div>
 
-<<<<<<< HEAD
 <div class="container mt-5">
 <div class="d-flex justify-content-between">
 <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
@@ -73,7 +72,7 @@
             <a class="btn btn-flat" href="#">Going</a>
         </div>
       </div>
-=======
+
 <div class="container m-5">
   <%= simple_form_for :search, url: root_path, method: :get do |f| %>
     <div class="search-form-control form-group">
@@ -81,7 +80,6 @@
       <button name="button" type="submit" class="btn btn-flat">
         <i class="fas fa-search"></i> Search
       </button>
->>>>>>> a5d474c302ccb3248e56a812b166d8ff43cb5643
     </div>
   <% end %>
 </div>
@@ -89,20 +87,18 @@
 <div class="container m-5">
   <h3 class="mt-5 mb-3">Golf events you may like:  </h3>
 
-  <div class="cards" >
-    <% @events.each do |event| %>
-      <div class="card-trip">
-        <% if event.photo.present? %>
-          <%= image_tag(event.photo) %>
-        <% else %>
-          <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
-        <% end %>
-        <div class="card-trip-infos">
-          <div>
-            <h2 class="mb-2"><%= event.name %></h2>
-            <p>Event date: <%= event.date %></p>
-          </div>
-          <%= link_to "Details", event_path(event), class: "btn btn-flat stretched-link" %>
+<div class="cards" >
+  <% @events.each do |event| %>
+    <div class="card-trip">
+      <% if event.photo.present? %>
+        <%= cl_image_tag(event.photo) %>
+      <% else %>
+        <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
+      <% end %>
+      <div class="card-trip-infos">
+        <div>
+          <h2 class="mb-2"><%= event.name %></h2>
+          <p>Event date: <%= event.date %></p>
         </div>
       </div>
     <% end %>
