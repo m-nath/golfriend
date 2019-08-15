@@ -4,11 +4,12 @@
     <div class="col-8">
       <!-- Event Card -->
       <div class="card-show">
-        <% if @event.photo.present? %>
-          <%= cl_image_tag(@event.photo, :alt => "event image") %>
+
+        <% if @event.photo? %>
+          <%= cl_image_tag @event.photo %>
         <% else %>
-          <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
-        <% end %>
+          <%= image_tag "card.jpg", class: "" %>
+      <% end %>
 
         <div class="card-show-infos d-flex justify-content-start bottom-line">
           <div class="card h-45 w-45 date-card">
