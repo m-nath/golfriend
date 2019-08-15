@@ -24,6 +24,14 @@
   transition: opacity 0.3s ease;
 }
 
+.btn-ghost-square a {
+  color: #4A4A4A;
+  border-radius: 5px;
+  font-weight: lighter;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
 .btn-ghost-square:hover {
   opacity: 1;
   color: $black;
