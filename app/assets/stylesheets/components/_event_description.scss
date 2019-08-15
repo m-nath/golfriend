@@ -1,6 +1,15 @@
 .event-description{
-  background-color: $gray;
+  background-color: $white;
   color: $green;
   height: auto;
   width: 100%;
+}
+
+.event-description div{
+  align-items: self-start;
+}
+
+.event-description > img{
+  object-fit: cover;
+  object-position: 100% 85%;
 }

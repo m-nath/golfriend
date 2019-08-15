@@ -1,0 +1,18 @@
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name, placeholder: 'Your amazing event name' %>
+    <%= f.input :description, placeholder: 'Something to describe your event' %>
+    <%= f.input :date, input_html: {type: :date} %>
+    <%= f.input :location, placeholder: 'Where does it happen?' %>
+    <%= f.input :max_participants, placeholder: 'Maybe 4?' %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn-flat" %>
+  </div>
+<% end %>
