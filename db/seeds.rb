@@ -50,7 +50,7 @@ puts "added #{User.count} users."
 
 User.all.each do |user|
   rand(1..3).times do
-    Event.create!(
+    e = Event.create!(
       name: Faker::TvShows::GameOfThrones.character + " Golf Club",
       description: Faker::TvShows::GameOfThrones.quote,
       photo: "https://source.unsplash.com/1000x700/?golfer",
@@ -59,6 +59,8 @@ User.all.each do |user|
       max_participants:rand(1..7),
       user: user
      )
+  puts "created #{e.name}"
+
   end
   rand(1..3).times do
     Reservation.create!(
