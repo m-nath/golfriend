@@ -1,14 +1,20 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 
+  <!-- this is logo -->
   <div class="d-flex">
     <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= image_tag "birdie.png" %>
     <% end %>
-    <h2>Golfriend</h2>
+    <h3 class="logo">Golfriend</h3>
   </div>
+  <!-- this is logo -->
+
   <div class="d-flex">
+
+    <!-- add an event -->
     <li class="nav-item">
       <%= link_to "Add an Event", new_event_path, class: "nav-link" %></li>
+    <!-- add an event -->
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
