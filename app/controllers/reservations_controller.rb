@@ -5,6 +5,7 @@ class ReservationsController < ApplicationController
     @event.user = current_user
     @reservation.event = @event
     authorize @event
+    raise
     if @reservation.save
       redirect_to event_path(@event)
     end
