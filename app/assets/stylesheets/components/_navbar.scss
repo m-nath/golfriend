@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $green;
+  height: 50px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,8 +14,14 @@
 
 .nav-link {
   color: white !important;
+  border-bottom: 1px solid white;
+  flex-grow: 0;
+  // text-decoration-color: white;
+  // text-decoration: underline;
 }
 
 h2 {
   color: white;
+  margin: auto;
 }
+
