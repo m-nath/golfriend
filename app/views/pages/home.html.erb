@@ -23,8 +23,11 @@
               <h2 class="mb-2">Event you are hosting</h2>
               <p><%= current_user.events.first.name %></p>
               <p><%= current_user.events.first.date%></p>
+              <div class="buttons">
+                <%= link_to "My events", events_path, class: "btn btn-flat" %>
+                <%= link_to "Create an event", new_event_path, class: "btn btn-ghost" %>
+              </div>
             </div>
-            <%= link_to "Create an event", new_event_path, class: "btn btn-ghost" %>
           </div>
         </div>
       </div>
