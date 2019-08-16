@@ -18,7 +18,8 @@ nath = User.create!(
   password: "123123",
   first_name: "Nath",
   last_name: "M",
-  admin: true
+  admin: true,
+  photo: "nath.jpg"
 )
 
 christee = User.create!(
@@ -26,21 +27,24 @@ christee = User.create!(
   password: "123123",
   first_name: "Christee",
   last_name: "Song",
-  admin: true
+  admin: true,
+  photo: "christee.jpg"
 )
 
 shohei = User.create!(
   email: "shohei@gmail.com",
   password: "123123",
   first_name: "Shohei",
-  last_name: "Okubo"
+  last_name: "Okubo",
+  photo: "shohei.jpg"
 )
 
 huishu = User.create!(
   email: "huishu@gmail.com",
   password: "123123",
   first_name: "Huishu",
-  last_name: "Jia"
+  last_name: "Jia",
+  photo: "huishu.jpg"
 )
 
 10.times do

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html class="gr__localhost"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Golfriend</title>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="LrAJlT2GgUL1P2tNSoki/CbO+LDw0lMX8VEDumgduMYOBDDPobPhOscBHm9875Wdz/YOPV6eQL3ktAFgFB8FpA==">
+    <meta name="action-cable-url" content="/cable">
+    <link rel="stylesheet" media="all" href="./Golfriend_files/application-3300813309dab4b93c86db673f5300df507aa940d3b5148d40efd9412755859f.css">
+     <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+  <link type="text/css" rel="stylesheet" href="blob:http://localhost:3000/3d3a618b-88d3-4b97-9b3d-9d1628eb230c"></head>
+  <body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <!-- this is logo -->
+  <div class="d-flex">
+    <a class="navbar-brand" href="http://localhost:3000/">
+      <img src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+</a>    <h3 class="logo">Golfriend</h3>
+  </div>
+  <!-- this is logo -->
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link nav-white-link" href="http://localhost:3000/events">Find events</a>
+      </li>
+
+        <li class="nav-item">
+          <a class="nav-link nav-white-link" href="http://localhost:3000/my_events">My events</a>
+        </li>
+        <li class="nav-item dropdown">
+
+          <img class="avatar dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item">
+            </a><a class="dropdown-item " href="http://localhost:3000/my_events">Hi, Shohei</a>
+            <a class="dropdown-item" href="http://localhost:3000/events/new">Add a new event</a>
+            <a class="dropdown-item" rel="nofollow" data-method="delete" href="http://localhost:3000/users/sign_out">Log out</a>
+          </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+    
+    <!-- here is the big banner -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(&#39;/assets/banner-0284c12e06ac5843bf84ccd562ef81bfa0a5a2263c3bedd6694f034dcd6c376f.jpg&#39;)">
+  <div class="banner-flex mt-5">
+      <div class="col">
+        <div class="card-event">
+          <div class="card-event-infos">
+            <div>
+              <h2 class="mb-2">Next event you signed up</h2>
+              <h6><a href="http://localhost:3000/events/151">Ellaria Sand Golf Club</a></h6>
+              <p>Hosted by Shohei</p>
+              <p>Date: 2019-10-20</p>
+              <div class="one-button">
+                <a class="btn btn-ghost" href="http://localhost:3000/my_events">My events</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card-event">
+          <div class="card-event-infos">
+            <div>
+              <h2 class="mb-2">Event you are hosting</h2>
+              <h6><a href="http://localhost:3000/events/150">Orys Baratheon Golf Club</a></h6>
+              <p>Date: 2019-09-26</p>
+                <p>Current Participants:
+                    Huishu
+                    Huishu
+                    Ardella
+                    Elliott
+                </p>
+
+              <div class="buttons">
+                <a class="btn btn-ghost" href="http://localhost:3000/my_events">My events</a>
+                <a class="btn btn-flat" href="http://localhost:3000/events/new">Create an event</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<!-- here is search bar & map -->
+<div class="container m-4 d-flex justify-content-between">
+  <div style="width: 500px">
+    <form novalidate="novalidate" class="simple_form search" action="http://localhost:3000/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+      <div class="search-form-control form-group">
+        <input class="form-control string required" type="text" name="search[query]" id="search_query">
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+</form>  </div>
+  <div id="map" style="width: 500px;
+    height: 250px;" data-markers="[{&quot;lat&quot;:35.6698,&quot;lng&quot;:139.7024,&quot;infoWindow&quot;:&quot;\u003ch2\u003eVarly Golf Club\u003c/h2\u003e\n\u003cp\u003e17-10 Sarugakucho, Shibuya City, Tokyo 150-0033\u003c/p\u003e\n\u003cp\u003e2019-10-21\u003c/p\u003e\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;},{&quot;lat&quot;:35.641259,&quot;lng&quot;:139.698232,&quot;infoWindow&quot;:&quot;\u003ch2\u003eJothos Slynt Golf Club\u003c/h2\u003e\n\u003cp\u003e〒153-0051 Tokyo, Meguro City, Kamimeguro, 1 Chome−23−1\u003c/p\u003e\n\u003cp\u003e2019-10-08\u003c/p\u003e\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;},{&quot;lat&quot;:35.641259,&quot;lng&quot;:139.698232,&quot;infoWindow&quot;:&quot;\u003ch2\u003eEllaria Sand Golf Club\u003c/h2\u003e\n\u003cp\u003e1 Chome-24-2 Meguro, Meguro City, Tokyo 153-0063\u003c/p\u003e\n\u003cp\u003e2019-10-20\u003c/p\u003e\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;},{&quot;lat&quot;:35.632274,&quot;lng&quot;:139.698601,&quot;infoWindow&quot;:&quot;\u003ch2\u003eLysono Maar Golf Club\u003c/h2\u003e\n\u003cp\u003e5 Chome-4-3 Megurohoncho, Meguro City, Tokyo 152-0002\u003c/p\u003e\n\u003cp\u003e2019-08-22\u003c/p\u003e\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;},{&quot;lat&quot;:35.632274,&quot;lng&quot;:139.698601,&quot;infoWindow&quot;:&quot;\u003ch2\u003eMellara Rivers Golf Club\u003c/h2\u003e\n\u003cp\u003e5 Chome-4-3 Megurohoncho, Meguro City, Tokyo 152-0002\u003c/p\u003e\n\u003cp\u003e2019-11-07\u003c/p\u003e\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;},{&quot;lat&quot;:35.632274,&quot;lng&quot;:139.698601,&quot;infoWindow&quot;:&quot;\u003ch2\u003eTriston of Tally Hill Golf Club\u003c/h2\u003e\n\u003cp\u003e5 Chome-4-3 Megurohoncho, Meguro City, Tokyo 152-0002\u003c/p\u003e\n\u003cp\u003e2019-10-15\u003c/p\u003e\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;},{&quot;lat&quot;:35.658043,&quot;lng&quot;:139.751469,&quot;infoWindow&quot;:&quot;\u003ch2\u003eLeo Blackbar Golf Club\u003c/h2\u003e\n\u003cp\u003e5 Chome-12 Shirokanedai, Minato City, Tokyo 108-0071\u003c/p\u003e\n\u003cp\u003e2019-08-21\u003c/p\u003e\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;},{&quot;lat&quot;:35.632274,&quot;lng&quot;:139.698601,&quot;infoWindow&quot;:&quot;\u003ch2\u003eSteffon Hollard Golf Club\u003c/h2\u003e\n\u003cp\u003e5 Chome-4-3 Megurohoncho, Meguro City, Tokyo 152-0002\u003c/p\u003e\n\u003cp\u003e2019-10-28\u003c/p\u003e\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;},{&quot;lat&quot;:35.658043,&quot;lng&quot;:139.751469,&quot;infoWindow&quot;:&quot;\u003ch2\u003eTristan Mudd Golf Club\u003c/h2\u003e\n\u003cp\u003e5 Chome-12 Shirokanedai, Minato City, Tokyo 108-0071\u003c/p\u003e\n\u003cp\u003e2019-10-23\u003c/p\u003e\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;},{&quot;lat&quot;:35.662447,&quot;lng&quot;:139.713367,&quot;infoWindow&quot;:&quot;\u003ch2\u003eEdmyn Tully Golf Club\u003c/h2\u003e\n\u003cp\u003e〒106-0031 Tokyo, Minato City, Nishiazabu, 1 Chome−15−4\u003c/p\u003e\n\u003cp\u003e2019-11-03\u003c/p\u003e\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;},{&quot;lat&quot;:35.641259,&quot;lng&quot;:139.698232,&quot;infoWindow&quot;:&quot;\u003ch2\u003eRonnel Arryn Golf Club\u003c/h2\u003e\n\u003cp\u003e1 Chome-24-2 Meguro, Meguro City, Tokyo 153-0063\u003c/p\u003e\n\u003cp\u003e2019-09-08\u003c/p\u003e\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;},{&quot;lat&quot;:35.6698,&quot;lng&quot;:139.7024,&quot;infoWindow&quot;:&quot;\u003ch2\u003eErryk Golf Club\u003c/h2\u003e\n\u003cp\u003e17-10 Sarugakucho, Shibuya City, Tokyo 150-0033\u003c/p\u003e\n\u003cp\u003e2019-11-20\u003c/p\u003e\n&quot;,&quot;image_url&quot;:&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;}]" data-mapbox-api-key="pk.eyJ1IjoiY2hyaXN0ZWV4IiwiYSI6ImNqeWpzYTBuZjA2em0zZHBrd3BqZnB3NTUifQ.voHgBc_o0JgiGVnFmTRswQ" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" style="position: absolute; width: 500px; height: 250px;" width="1000" height="500"></canvas><div class="marker mapboxgl-marker mapboxgl-marker-anchor-center" style="background-image: url(&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;); background-size: contain; width: 25px; height: 25px; transform: translate(-50%, -50%) translate(197px, 70px);"></div><div class="marker mapboxgl-marker mapboxgl-marker-anchor-center" style="background-image: url(&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;); background-size: contain; width: 25px; height: 25px; transform: translate(-50%, -50%) translate(187px, 154px);"></div><div class="marker mapboxgl-marker mapboxgl-marker-anchor-center" style="background-image: url(&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;); background-size: contain; width: 25px; height: 25px; transform: translate(-50%, -50%) translate(187px, 154px);"></div><div class="marker mapboxgl-marker mapboxgl-marker-anchor-center" style="background-image: url(&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;); background-size: contain; width: 25px; height: 25px; transform: translate(-50%, -50%) translate(187px, 180px);"></div><div class="marker mapboxgl-marker mapboxgl-marker-anchor-center" style="background-image: url(&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;); background-size: contain; width: 25px; height: 25px; transform: translate(-50%, -50%) translate(187px, 180px);"></div><div class="marker mapboxgl-marker mapboxgl-marker-anchor-center" style="background-image: url(&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;); background-size: contain; width: 25px; height: 25px; transform: translate(-50%, -50%) translate(187px, 180px);"></div><div class="marker mapboxgl-marker mapboxgl-marker-anchor-center" style="background-image: url(&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;); background-size: contain; width: 25px; height: 25px; transform: translate(-50%, -50%) translate(313px, 104px);"></div><div class="marker mapboxgl-marker mapboxgl-marker-anchor-center" style="background-image: url(&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;); background-size: contain; width: 25px; height: 25px; transform: translate(-50%, -50%) translate(187px, 180px);"></div><div class="marker mapboxgl-marker mapboxgl-marker-anchor-center" style="background-image: url(&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;); background-size: contain; width: 25px; height: 25px; transform: translate(-50%, -50%) translate(313px, 104px);"></div><div class="marker mapboxgl-marker mapboxgl-marker-anchor-center" style="background-image: url(&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;); background-size: contain; width: 25px; height: 25px; transform: translate(-50%, -50%) translate(223px, 92px);"></div><div class="marker mapboxgl-marker mapboxgl-marker-anchor-center" style="background-image: url(&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;); background-size: contain; width: 25px; height: 25px; transform: translate(-50%, -50%) translate(187px, 154px);"></div><div class="marker mapboxgl-marker mapboxgl-marker-anchor-center" style="background-image: url(&quot;http://localhost:3000/assets/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png&quot;); background-size: contain; width: 25px; height: 25px; transform: translate(-50%, -50%) translate(197px, 70px);"></div></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener nofollow" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib mapboxgl-compact"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank">© Mapbox</a> <a href="http://www.openstreetmap.org/about/" target="_blank">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=mapbox&amp;id=streets-v10&amp;access_token=pk.eyJ1IjoiY2hyaXN0ZWV4IiwiYSI6ImNqeWpzYTBuZjA2em0zZHBrd3BqZnB3NTUifQ.voHgBc_o0JgiGVnFmTRswQ" target="_blank" rel="noopener nofollow">Improve this map</a></div></div></div></div></div>
+</div>
+<!--Here is cards list -->
+<div class="container">
+  <div class="d-flex bd-highlight">
+    <div class="p-0 w-100 bd-highlight">
+      <h3>Golf events you may like:  </h3>
+    </div>
+    <div class="pb-2  flex-shrink-1 bd-highlight">
+      <a class="btn btn-lg" href="http://localhost:3000/events">All events</a>
+    </div>
+  </div>
+  <div class="cards">
+      <div class="card-trip">
+          <img src="./Golfriend_files/active-activity-adults-424725.jpg" alt="online event">
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2">Varly Golf Club</h2>
+            <p>Event date: 2019-10-21</p>
+          </div>
+            <img class="card-show-user avatar-bordered" src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+          <a class="btn btn-flat stretched-link" href="http://localhost:3000/events/145">Details</a>
+        </div>
+      </div>
+      <div class="card-trip">
+          <img src="./Golfriend_files/active-activity-adults-424725.jpg" alt="online event">
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2">Jothos Slynt Golf Club</h2>
+            <p>Event date: 2019-10-08</p>
+          </div>
+            <img class="card-show-user avatar-bordered" src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+          <a class="btn btn-flat stretched-link" href="http://localhost:3000/events/149">Details</a>
+        </div>
+      </div>
+      <div class="card-trip">
+          <img src="./Golfriend_files/active-activity-adults-424725.jpg" alt="online event">
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2">Ellaria Sand Golf Club</h2>
+            <p>Event date: 2019-10-20</p>
+          </div>
+            <img class="card-show-user avatar-bordered" src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+          <a class="btn btn-flat stretched-link" href="http://localhost:3000/events/151">Details</a>
+        </div>
+      </div>
+      <div class="card-trip">
+          <img src="./Golfriend_files/active-activity-adults-424725.jpg" alt="online event">
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2">Lysono Maar Golf Club</h2>
+            <p>Event date: 2019-08-22</p>
+          </div>
+            <img class="card-show-user avatar-bordered" src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+          <a class="btn btn-flat stretched-link" href="http://localhost:3000/events/156">Details</a>
+        </div>
+      </div>
+      <div class="card-trip">
+          <img src="./Golfriend_files/active-activity-adults-424725.jpg" alt="online event">
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2">Mellara Rivers Golf Club</h2>
+            <p>Event date: 2019-11-07</p>
+          </div>
+            <img class="card-show-user avatar-bordered" src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+          <a class="btn btn-flat stretched-link" href="http://localhost:3000/events/154">Details</a>
+        </div>
+      </div>
+      <div class="card-trip">
+          <img src="./Golfriend_files/active-activity-adults-424725.jpg" alt="online event">
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2">Triston of Tally Hill Golf Club</h2>
+            <p>Event date: 2019-10-15</p>
+          </div>
+            <img class="card-show-user avatar-bordered" src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+          <a class="btn btn-flat stretched-link" href="http://localhost:3000/events/160">Details</a>
+        </div>
+      </div>
+      <div class="card-trip">
+          <img src="./Golfriend_files/active-activity-adults-424725.jpg" alt="online event">
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2">Leo Blackbar Golf Club</h2>
+            <p>Event date: 2019-08-21</p>
+          </div>
+            <img class="card-show-user avatar-bordered" src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+          <a class="btn btn-flat stretched-link" href="http://localhost:3000/events/172">Details</a>
+        </div>
+      </div>
+      <div class="card-trip">
+          <img src="./Golfriend_files/active-activity-adults-424725.jpg" alt="online event">
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2">Steffon Hollard Golf Club</h2>
+            <p>Event date: 2019-10-28</p>
+          </div>
+            <img class="card-show-user avatar-bordered" src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+          <a class="btn btn-flat stretched-link" href="http://localhost:3000/events/167">Details</a>
+        </div>
+      </div>
+      <div class="card-trip">
+          <img src="./Golfriend_files/active-activity-adults-424725.jpg" alt="online event">
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2">Tristan Mudd Golf Club</h2>
+            <p>Event date: 2019-10-23</p>
+          </div>
+            <img class="card-show-user avatar-bordered" src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+          <a class="btn btn-flat stretched-link" href="http://localhost:3000/events/174">Details</a>
+        </div>
+      </div>
+      <div class="card-trip">
+          <img src="./Golfriend_files/active-activity-adults-424725.jpg" alt="online event">
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2">Edmyn Tully Golf Club</h2>
+            <p>Event date: 2019-11-03</p>
+          </div>
+            <img class="card-show-user avatar-bordered" src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+          <a class="btn btn-flat stretched-link" href="http://localhost:3000/events/168">Details</a>
+        </div>
+      </div>
+      <div class="card-trip">
+          <img src="./Golfriend_files/active-activity-adults-424725.jpg" alt="online event">
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2">Ronnel Arryn Golf Club</h2>
+            <p>Event date: 2019-09-08</p>
+          </div>
+            <img class="card-show-user avatar-bordered" src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+          <a class="btn btn-flat stretched-link" href="http://localhost:3000/events/158">Details</a>
+        </div>
+      </div>
+      <div class="card-trip">
+          <img src="./Golfriend_files/active-activity-adults-424725.jpg" alt="online event">
+        <div class="card-trip-infos">
+          <div>
+            <h2 class="mb-2">Erryk Golf Club</h2>
+            <p>Event date: 2019-11-20</p>
+          </div>
+            <img class="card-show-user avatar-bordered" src="./Golfriend_files/birdie-fd6f23deee629f7fc5ff702649bcbb32056e1d8a1f9beab9eee5a4bcc906897d.png">
+          <a class="btn btn-flat stretched-link" href="http://localhost:3000/events/148">Details</a>
+        </div>
+      </div>
+  </div>
+</div>
+
+    <script src="./Golfriend_files/application-33fb130d4bd6a80dd802ecb7e62d81f0352b216dafcfb5f9924faf746d384969.js"></script>
+    <script src="./Golfriend_files/application-9e7a81ed6bc0240a63db.js"></script>
+  
+
+</body></html>
