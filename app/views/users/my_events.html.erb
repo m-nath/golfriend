@@ -9,7 +9,7 @@
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
           <a class="mx-1 event-nav nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Events I signed up</a>
           <a class="mx-1 event-nav nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Events I host</a>
-          <a class="mx-1 event-nav nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Events I interested</a>
+          <a class="mx-1 event-nav nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Events I'm interested in</a>
         </div>
       </nav>
       <div class="tab-content" id="nav-tabContent">
@@ -32,7 +32,7 @@
                   <% end %>
                 </p>
                 <%= link_to "Details", event_path(reservation.event), class: "btn btn-flat m-2" %>
-                <div class = "text-center btn-big-flat m-2"><%= link_to reservation_path(reservation), method: :delete, data: { confirm: "Do you really want to cancel the reservation?" } do %>Cancel my reservation<% end %></div>
+                <div class = "btn btn-flat m-2"><%= link_to reservation_path(reservation), method: :delete, data: { confirm: "Do you really want to cancel the reservation?" } do %>Cancel my reservation<% end %></div>
               </div>
             <% end %>
           </div>
@@ -50,7 +50,7 @@
                 <h2 class="m-3"><%= event.name %></h2>
                 <p class="m-3">Date: <%= event.date %></p>
                 <%= link_to "Details", event_path(event), class: "btn btn-flat m-2" %>
-                <div class = "text-center btn-big-flat m-2"><%= link_to event_path(event), method: :delete, data: { confirm: "Do you really want to delete the event?" } do %>Delete<% end %></div>
+                <div class = "btn btn-flat m-2"><%= link_to event_path(event), method: :delete, data: { confirm: "Do you really want to delete the event?" } do %>Delete<% end %></div>
                 <!-- participants -->
               </div>
             <% end %>
