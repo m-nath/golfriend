@@ -1,6 +1,6 @@
 <title>All Events</title>
 
-<div class="container m-5">
+<div class="container">
   <%= form_tag events_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
@@ -13,7 +13,7 @@
 
 <!-- the list of movies -->
 
-<div class="container m-5">
+<div class="container">
   <h1 class="mt-5 mb-3" style="color:black">All Events </h3>
   <div class="cards" >
     <% @events.each do |event| %>
