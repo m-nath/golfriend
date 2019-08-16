@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2019_08_16_030732) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.text "discussion"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -44,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_08_16_030732) do
   create_table "reservations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "event_id"
-    t.boolean "confirmed?"
+    t.boolean "confirmed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_reservations_on_event_id"
