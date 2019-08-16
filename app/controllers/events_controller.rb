@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = policy_scope(Event).find(params[:id])
   end
 
   def new
