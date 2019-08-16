@@ -53,7 +53,15 @@
 </div>
 <!--Here is cards list -->
 <div class="container">
-  <h3 class=" mb-3">Golf events you may like:  </h3>
+  <div class="d-flex bd-highlight">
+    <div class="p-0 w-100 bd-highlight">
+      <h3>Golf events you may like:  </h3>
+    </div>
+    <div class="pb-2  flex-shrink-1 bd-highlight">
+    <%= link_to "All events", events_path, class: "btn btn-lg" %>
+    </div>
+  </div>
+
   <div class="cards" >
     <% @events.each do |event| %>
       <div class="card-trip">

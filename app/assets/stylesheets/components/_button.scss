@@ -33,3 +33,17 @@
   background: $green;
   color: white;
 }
+
+.btn-lg {
+  width: 140px;
+  color: white;
+  padding: 0px 24px;
+  border-radius: 4px;
+  background: $light-green;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: $green;
+  color: white;
+}
