@@ -1,17 +1,19 @@
-<title>All Events - Golfriend</title>
+<title>All Events</title>
 
-<div class="container m-5">
-  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-    <div class="search-form-control form-group">
-      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-      <button name="button" type="submit" class="btn btn-flat">
-        <i class="fas fa-search"></i> Search
-      </button>
-    </div>
+<div class="container">
+  <%= form_tag events_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find your next golf event"
+    %>
+    <%= submit_tag "Search", class: "btn btn-flat" %>
   <% end %>
 </div>
 
-<div class="container m-5">
+<!-- the list of movies -->
+
+<div class="container">
   <h1 class="mt-5 mb-3" style="color:black">All Events </h3>
   <div class="cards" >
     <% @events.each do |event| %>

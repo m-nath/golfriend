@@ -1,0 +1,2 @@
+class AddDiscussionToEvent < ApplicationRecord
+end

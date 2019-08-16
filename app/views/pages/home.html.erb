@@ -29,7 +29,7 @@
     <% end %>
   </div>
 </div>
-<!-- here is the big banner -->
+<!-- here is search bar & map -->
 <div class="container m-4 d-flex justify-content-between">
   <div style="width: 500px">
     <%= simple_form_for :search, url: root_path, method: :get do |f| %>
@@ -49,7 +49,8 @@
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
 </div>
-<div class="container m-5">
+<!--Here is cards list -->
+<div class="container">
   <h3 class=" mb-3">Golf events you may like:  </h3>
   <div class="cards" >
     <% @events.each do |event| %>
