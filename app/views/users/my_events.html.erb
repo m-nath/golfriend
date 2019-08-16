@@ -1,23 +1,67 @@
 <div class="container m-5">
-  <h1>My Events</h1>
-  <h3 class=" mb-3">Events I signed up</h3>
-  <%  current_user.reservations.each do |reservation| %>
-    <ul>
-      <li>Date: <%= reservation.event.date %></li>
-      <li>Event: <%= reservation.event.name %></li>
-      <li>Status:
-        <% if reservation.confirmed? == true %>
-          Confirmed
-        <% else %>
-          Pending
-        <% end %>
-      </li>
-    </ul>
-  <% end %>
-  <h3 class=" mb-3">Events I hosted</h3>
-  <% current_user.events.each do |event| %>
-    <ul>
-      <li>Date: <%= event.date %></li>
-      <li>Event: <%= event.name %></li>
-    </ul>
-  <% end %>
+  <div class="row">
+    <div class="col-1">
+    </div>
+    <div class="col-10" id="events-tab">
+      <h2 class="my-4">My Events</h2>
+
+<!-- THIS IS THE REAL TAB -->
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Events I signed up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Events I hosted</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Events I interested</a>
+            </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+          <p>here are the events I signed up</p>
+          <%  current_user.reservations.each do |reservation| %>
+            <div class="cards" >
+              <% if reservation.event.photo.present? %>
+                <%= cl_image_tag(reservation.event.photo) %>
+              <% else %>
+                <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
+              <% end %>
+              <p class="m-2">Date: <%= reservation.event.date %></p>
+              <p class="m-2">Event: <%= reservation.event.name %></p>
+              <p>Status:
+                <% if reservation.confirmed? == true %>
+                  Confirmed
+                <% else %>
+                  Pending
+                <% end %>
+              </p>
+            </div>
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+          <p>here are the events I hosted</p>
+          <div class="cards" >
+            <% current_user.events.each do |event| %>
+              <div class="card-trip">
+                <% if event.photo.present? %>
+                  <%= cl_image_tag(event.photo) %>
+                <% else %>
+                <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
+                <% end %>
+                <p class="mb-2">Date: <%= event.date %></p>
+                <p class="mb-2">Time: <%= event.name %></p>
+              </div>
+            <% end %>
+          </div>
+
+        </div>
+        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+          <p>here are the events I interested</p>
+        </div>
+      </div>
+<!-- THIS IS THE REAL TAB -->
+    <div class="col-1">
+  </div>
+</div>
