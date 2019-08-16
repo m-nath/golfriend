@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_08_16_030732) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.text "discussion"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
