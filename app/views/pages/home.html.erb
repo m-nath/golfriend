@@ -1,6 +1,6 @@
 <!-- here is the big banner -->
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "banner.jpg" %>')">
-  <div class="banner-flex">
+  <div class="banner-flex mt-5>
     <% if user_signed_in? && !current_user.reserved_events.empty? %>
       <div class="col">
         <div class="card-event">
