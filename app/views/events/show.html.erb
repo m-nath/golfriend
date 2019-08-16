@@ -57,7 +57,11 @@
           <!-- discussion list - each do for the further -->
           <div class="d-flex justify-content-between align-self-start">
             <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
-            <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
+            <% if @current_user.photo.present? %>
+              <%= cl_image_tag @event.user.photo, class:"card-show-user avatar-bordered" %>
+            <% else %>
+              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
+            <% end %>
             <div>
               <% @event.messages.each do |message| %>
                 <p><%= message.event.user.first_name %></p>

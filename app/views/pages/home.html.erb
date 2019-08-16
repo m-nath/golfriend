@@ -1,6 +1,6 @@
 <!-- here is the big banner -->
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "banner.jpg" %>')">
-  <div class="banner-flex mt-5>
+  <div class="banner-flex mt-5">
     <% if user_signed_in? && !current_user.reserved_events.empty? %>
       <div class="col">
         <div class="card-event">
@@ -58,10 +58,9 @@
       <h3>Golf events you may like:  </h3>
     </div>
     <div class="pb-2  flex-shrink-1 bd-highlight">
-    <%= link_to "All events", events_path, class: "btn btn-lg" %>
+      <%= link_to "All events", events_path, class: "btn btn-lg" %>
     </div>
   </div>
-
   <div class="cards" >
     <% @events.each do |event| %>
       <div class="card-trip">
