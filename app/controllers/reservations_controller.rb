@@ -20,9 +20,10 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation = Reservation.find(params[:id])
-    @event.user = current_user
+    authorize @reservation
+    @event = @reservation.event
+    # @event.user = current_user
     @reservation.destroy
-    authorize @event
     redirect_to event_path(@event)
   end
 

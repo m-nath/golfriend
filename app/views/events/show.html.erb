@@ -57,30 +57,35 @@
           <!-- discussion list - each do for the further -->
           <div class="d-flex justify-content-between align-self-start">
             <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
-            <% if @current_user.photo.present? %>
-              <%= cl_image_tag @event.user.photo, class:"card-show-user avatar-bordered" %>
+
+            <% if current_user.photo.present? %>
+            <%= cl_image_tag current_user.photo, class:"card-show-user avatar-bordered-small m-2" %>
             <% else %>
-              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
+            <%= image_tag "birdie.png", class:"card-show-user avatar-bordered-small m-2" %>
             <% end %>
-            <div>
-              <% @event.messages.each do |message| %>
-                <p><%= message.event.user.first_name %></p>
-                <p><%= message.content %></p>
-              <% end %>
-            </div>
+
             <div>
               <%= render 'messages/form' %>
             </div>
-            <!-- discussion list - can be deleted later -->
-            <div class="d-flex justify-content-between align-self-start">
+            <!-- discussion list --modified -->
+            <div class="">
               <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
-              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
-              <div>
-                <h6 class="m-2 pt-2">Name</h6>
-                <p class="m-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-              </div>
+              <% @event.messages.each do |message| %>
+                <div class="d-flex justify-content-between align-self-start">
+                  <% if message.user.photo.present? %>
+                  <%= image_tag message.user.photo, class:"card-show-user avatar-bordered-small m-2" %>
+                  <% else %>
+                  <%= image_tag "birdie.png", class:"card-show-user avatar-bordered-small m-2" %>
+                  <% end %>
+
+                  <div>
+                    <h6 class="m-2 pt-2"><%= message.user.first_name %></h6>
+                    <p class="m-2"><%= message.content %></p>
+                  </div>
+                </div>
+              <% end %>
             </div>
-            <!-- ABOVE discussion list - can be deleted later -->
+            <!-- ABOVE discussion list -->
           </div>
         </div>
       </div>
@@ -88,10 +93,12 @@
       <div class = "col-4">
         <div class = "d-flex justify-content-start align-self-start">
           <% if current_user.reserved_events.include?(@event) %>
-            <div class = "text-center btn-big-flat m-2">Cancel
+
+            <div class = "text-center btn-big-flat m-2"><%= link_to reservation_path(@reservation), method: :delete, data: { confirm: "You have cancelled the booking of this event" } do %>Cancel my booking<% end %>
             </div>
+
           <% else %>
-            <div class = "text-center btn-big-flat m-2"><%= link_to event_reservations_path(@event, reservation: { :event_id => @event.id }), method: :post, data: { confirm: "You booked an event" } do %>Book<% end %>
+            <div class = "text-center btn-big-flat m-2"><%= link_to event_reservations_path(@event, reservation: { :event_id => @event.id }), method: :post, data: { confirm: "You have booked this event, please wait for the host`s confirmation" } do %>Book this event<% end %>
             </div>
           <% end %>
           <div class = "text-center btn-big-flat m-2">Interested</div>
@@ -104,28 +111,17 @@
         <div class="mx-2 mt-3">
           <h6>Participants</h6>
           <div class="d-flex flex-column">
-            <div class="d-flex flex-row align-self-start">
-              <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
-              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
-              <h6 class="m-2 pt-2">Name</h6>
-            </div>
-            <!-- below can be deleted after each do -->
-            <div class="d-flex flex-row align-self-start">
-              <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
-              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
-              <h6 class="m-2 pt-2">Name</h6>
-            </div>
-            <div class="d-flex flex-row align-self-start">
-              <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
-              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
-              <h6 class="m-2 pt-2">Name</h6>
-            </div>
-            <div class="d-flex flex-row align-self-start">
-              <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
-              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
-              <h6 class="m-2 pt-2">Name</h6>
-            </div>
-            <!-- above can be deleted after each do -->
+            <% @participants.each do |p| %>
+              <div class="d-flex flex-row align-self-start">
+                <% if p.photo.present? %>
+                <%= image_tag p.photo, class:"card-show-user avatar-bordered-small m-2" %>
+                <% else %>
+                <%= image_tag "birdie.png", class:"card-show-user avatar-bordered-small m-2" %>
+                <% end %>
+                <h6 class="m-2 pt-2"><%= p.first_name + " " + p.last_name %></h6>
+              </div>
+            <% end %>
+            <!-- above is participates -->
           </div>
         </div>
       </div>

@@ -12,6 +12,8 @@ class EventsController < ApplicationController
   def show
     @event = policy_scope(Event).find(params[:id])
     @message = Message.new
+    @participants = @event.participants
+    @reservation = Reservation.where(user: current_user, event: @event).first
   end
 
   def new

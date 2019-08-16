@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   has_many :reservations
+  has_many :participants, :through => :reservations, :source => :user
   has_many :messages
   has_many :commented_users, :through => :messages, :source =>  :user
   belongs_to :user
