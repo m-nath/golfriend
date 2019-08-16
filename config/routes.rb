@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   # end
   resources :events do
     resources :reservations, only:[:create]
+    resources :messages, only:[:create]
   end
   resources :reservations, only:[:destroy, :update]
 
   get "my_events", to: "users#my_events"
+
 end

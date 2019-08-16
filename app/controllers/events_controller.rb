@@ -11,6 +11,7 @@ class EventsController < ApplicationController
 
   def show
     @event = policy_scope(Event).find(params[:id])
+    @message = Message.new
   end
 
   def new
