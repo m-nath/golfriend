@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :reservations
   has_many :reserved_events, :through => :reservations, :source => :event
 
+  has_many :messages
+  has_many :commented_events, :through => :messages, :source => :event
+
   has_many :events #host
 
   validates :first_name, presence: true
