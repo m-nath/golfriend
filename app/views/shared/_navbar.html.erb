@@ -17,7 +17,7 @@
 
     <!-- add an event -->
     <li class="nav-item">
-      <%= link_to "Add an Event", new_event_path, class: "nav-link" %></li>
+      <%= link_to "Add an Event", new_event_path, class: "nav-white-link nav-link" %></li>
     <!-- add an event -->
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +27,7 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "My Events", my_events_path, class: "nav-link" %>
+            <%= link_to "My Events", my_events_path, class: "nav-white-link nav-link" %>
             <li class="nav-item dropdown">
               <% if @current_user.photo.present? %>
                 <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle card-show-user avatar-bordered", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
