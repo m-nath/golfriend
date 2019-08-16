@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   has_many :reservations
+  has_many :messages
   belongs_to :user
 
   validates :name, presence: true

@@ -55,61 +55,70 @@
             <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
             <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
             <div>
-              <h6 class="m-2 pt-2">Name</h6>
-              <p class="m-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              <% @event.messages.each do |message| %>
+                <p><%= message.event.user.first_name %></p>
+                <p><%= message.content %></p>
+              <% end %>
             </div>
-          </div>
-          <!-- discussion list - can be deleted later -->
-          <div class="d-flex justify-content-between align-self-start">
-            <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
-            <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
             <div>
-              <h6 class="m-2 pt-2">Name</h6>
-              <p class="m-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              <%= render 'messages/form' %>
             </div>
+            <!-- discussion list - can be deleted later -->
+            <div class="d-flex justify-content-between align-self-start">
+              <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
+              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
+              <div>
+                <h6 class="m-2 pt-2">Name</h6>
+                <p class="m-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+              </div>
+            </div>
+            <!-- ABOVE discussion list - can be deleted later -->
           </div>
-          <!-- ABOVE discussion list - can be deleted later -->
+        </div>
+      </div>
+      <!-- Left part 2/3 here  -->
+      <div class = "col-4">
+        <div class = "d-flex justify-content-start align-self-start">
+          <% if current_user.reserved_events.include?(@event) %>
+            <div class = "text-center btn-big-flat m-2">Cancel
+            </div>
+          <% else %>
+            <div class = "text-center btn-big-flat m-2"><%= link_to event_reservations_path(@event, reservation: { :event_id => @event.id }), method: :post, data: { confirm: "You booked an event" } do %>Book<% end %>
+            </div>
+          <% end %>
+          <div class = "text-center btn-big-flat m-2">Interested</div>
+        </div>
+        <div class="mx-2 mt-3">
+          <% if policy(@event).edit? %>
+            <div class = "text-center btn-ghost-square m-2"><%= link_to "Edit", edit_event_path(@event) %></div>
+          <% end %>
+        </div>
+        <div class="mx-2 mt-3">
+          <h6>Participants</h6>
+          <div class="d-flex flex-column">
+            <div class="d-flex flex-row align-self-start">
+              <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
+              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
+              <h6 class="m-2 pt-2">Name</h6>
+            </div>
+            <!-- below can be deleted after each do -->
+            <div class="d-flex flex-row align-self-start">
+              <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
+              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
+              <h6 class="m-2 pt-2">Name</h6>
+            </div>
+            <div class="d-flex flex-row align-self-start">
+              <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
+              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
+              <h6 class="m-2 pt-2">Name</h6>
+            </div>
+            <div class="d-flex flex-row align-self-start">
+              <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
+              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
+              <h6 class="m-2 pt-2">Name</h6>
+            </div>
+            <!-- above can be deleted after each do -->
+          </div>
         </div>
       </div>
     </div>
-    <!-- Left part 2/3 here  -->
-    <div class = "col-4">
-      <div class = "d-flex justify-content-start align-self-start">
-        <div class = "text-center btn-big-flat m-2"><%= link_to event_reservations_path(@event, reservation: { :event_id => @event.id }), method: :post, data: { confirm: "You have book an event" } do %>Going<% end %>
-        </div>
-        <div class = "text-center btn-big-flat m-2">Interested</div>
-      </div>
-      <div class="mx-2 mt-3">
-        <% if policy(@event).edit? %>
-          <div class = "text-center btn-ghost-square m-2"><%= link_to "Edit", edit_event_path(@event) %></div>
-        <% end %>
-      </div>
-      <div class="mx-2 mt-3">
-        <h6>Participants</h6>
-        <div class="d-flex flex-column">
-          <div class="d-flex flex-row align-self-start">
-            <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
-            <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
-            <h6 class="m-2 pt-2">Name</h6>
-          </div>
-          <!-- below can be deleted after each do -->
-          <div class="d-flex flex-row align-self-start">
-            <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
-            <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
-            <h6 class="m-2 pt-2">Name</h6>
-          </div>
-          <div class="d-flex flex-row align-self-start">
-            <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
-            <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
-            <h6 class="m-2 pt-2">Name</h6>
-          </div>
-          <div class="d-flex flex-row align-self-start">
-            <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-show-user avatar-bordered-small m-2" /> -->
-            <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered-small m-2" %>
-            <h6 class="m-2 pt-2">Name</h6>
-          </div>
-          <!-- above can be deleted after each do -->
-        </div>
-      </div>
-    </div>
-  </div>
