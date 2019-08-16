@@ -1,11 +1,16 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @events = policy_scope(Event).order(created_at: :desc)
+    if params[:query].present?
+      @events = policy_scope(Event).global_search(params[:query])
+    else
+      @events = policy_scope(Event).order(date: :desc)
+    end
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = policy_scope(Event).find(params[:id])
     @message = Message.new
   end
 

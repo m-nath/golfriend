@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby '2.6.3'
 
 # Gemfile
+gem 'pg_search'
+
 gem 'pundit'
 
 gem 'geocoder'
