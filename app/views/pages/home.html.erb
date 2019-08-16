@@ -10,8 +10,10 @@
               <h6><%= link_to current_user.reserved_events.first.name, event_path(current_user.reserved_events.first) %></h6>
               <p>Hosted by <%= current_user.reservations.first.event.user.first_name%></p>
               <p>Date: <%= current_user.reservations.first.event.date%></p>
+              <div class="one-button">
+                <%= link_to "My events", my_events_path, class: "btn btn-ghost" %>
+              </div>
             </div>
-            <%= link_to "My events", my_events_path, class: "btn btn-ghost" %>
           </div>
         </div>
       </div>
@@ -22,7 +24,6 @@
           <div class="card-event-infos">
             <div>
               <h2 class="mb-2">Event you are hosting</h2>
-              
               <h6><%= link_to current_user.events.first.name, event_path(current_user.events.first) %></h6>
               <p>Date: <%= current_user.events.first.date%></p>
               <% if current_user.events.first.participants %>
@@ -34,10 +35,9 @@
               <% end %>
 
               <div class="buttons">
-                <%= link_to "My events", my_events_path, class: "btn btn-flat" %>
-                <%= link_to "Create an event", new_event_path, class: "btn btn-ghost" %>
+                <%= link_to "My events", my_events_path, class: "btn btn-ghost" %>
+                <%= link_to "Create an event", new_event_path, class: "btn btn-flat" %>
               </div>
-
             </div>
           </div>
         </div>
