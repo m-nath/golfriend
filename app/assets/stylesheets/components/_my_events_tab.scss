@@ -1,0 +1,57 @@
+.event-nav {
+background-color: $green;
+
+}
+
+.event-nav:hover {
+background-color: $light-green;
+color: $white;
+transform: translateY(-5px);
+}
+
+#nav-tabContent {
+  background-color: $white;
+  width: 100%;
+  height: 750px;
+  padding: 16px;
+  border-radius: 5px;
+}
+
+.nav-tabs {
+  .nav-link.active {
+    background-color: $white;
+    border-right: 1px solid $green;
+    border-left: 1px solid $green;
+    border-top: 1px solid $green;
+  }
+}
+
+#pills-tab {
+  width: 100%
+}
+
+#pills-home-tab, #pills-profile-tab, #pills-contact-tab {
+  background-color: $green;
+}
+
+#pills-home-tab:active, #pills-profile-tab:active, #pills-contact-tab:active {
+  background-color: $white;
+}
+
+#pills-home-tab:hover, #pills-profile-tab:hover, #pills-contact-tab:hover {
+  background-color: $light-green;
+}
+
+
+.pills-home-tab .nav-item {
+  background-color: $white;
+
+}
+
+.events-tab {
+  width: 100%;
+}
+
+.event-nav a {
+  color: green !important;
+}

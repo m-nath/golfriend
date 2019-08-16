@@ -1,23 +1,68 @@
 <div class="container m-5">
-  <h1>My Events</h1>
-  <h3 class=" mb-3">Events I signed up</h3>
-  <%  current_user.reservations.each do |reservation| %>
-    <ul>
-      <li>Date: <%= reservation.event.date %></li>
-      <li>Event: <%= reservation.event.name %></li>
-      <li>Status:
-        <% if reservation.confirmed? == true %>
-          Confirmed
-        <% else %>
-          Pending
-        <% end %>
-      </li>
-    </ul>
-  <% end %>
-  <h3 class=" mb-3">Events I hosted</h3>
-  <% current_user.events.each do |event| %>
-    <ul>
-      <li>Date: <%= event.date %></li>
-      <li>Event: <%= event.name %></li>
-    </ul>
-  <% end %>
+  <div class="row">
+    <div class="col-1">
+    </div>
+    <div class="col-10" id="events-tab">
+      <h2 class="my-4">My Events</h2>
+
+    <!-- TAB -->
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="mx-1 event-nav nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Events I signed up</a>
+        <a class="mx-1 event-nav nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Events I host</a>
+        <a class="mx-1 event-nav nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Events I interested</a>
+      </div>
+    </nav>
+
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="cards" >
+            <%  current_user.reservations.each do |reservation| %>
+              <div class="card-trip" >
+                <% if reservation.event.photo.present? %>
+                  <%= cl_image_tag(reservation.event.photo) %>
+                <% else %>
+                  <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
+                <% end %>
+                <h2 class="m-3"><%= reservation.event.name %></h2>
+                <p class="m-3">Date: <%= reservation.event.date %></p>
+                <p class="m-3">Status:
+                  <% if reservation.confirmed? == true %>
+                    Confirmed
+                  <% else %>
+                    Pending
+                  <% end %>
+                </p>
+              </div>
+            <% end %>
+          </div>
+          <%= link_to "Find a event", events_path, class: "btn btn-ghost" %>
+      </div>
+
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="cards" >
+        <% current_user.events.each do |event| %>
+              <div class="card-trip">
+                  <% if event.photo.present? %>
+                    <%= cl_image_tag(event.photo) %>
+                  <% else %>
+                    <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
+                  <% end %>
+                      <h2 class="m-3"><%= event.name %></h2>
+                      <p class="m-3">Date: <%= event.date %></p>
+                <!-- participants -->
+              </div>
+            <% end %>
+          </div>
+          <div class="my-3"><%= link_to "Add a event", new_event_path, class: "btn btn-ghost" %></div>
+      </div>
+
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <%= link_to "Find a event", events_path, class: "btn btn-ghost" %>
+      </div>
+    </div>
+    <!-- TAB -->
+
+    <div class="col-1">
+  </div>
+</div>
