@@ -4,18 +4,16 @@
     </div>
     <div class="col-10" id="events-tab">
       <h2 class="my-4">My Events</h2>
-
-    <!-- TAB -->
-    <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="mx-1 event-nav nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Events I signed up</a>
-        <a class="mx-1 event-nav nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Events I host</a>
-        <a class="mx-1 event-nav nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Events I interested</a>
-      </div>
-    </nav>
-
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <!-- TAB -->
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="mx-1 event-nav nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Events I signed up</a>
+          <a class="mx-1 event-nav nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Events I host</a>
+          <a class="mx-1 event-nav nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Events I interested</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
           <div class="cards" >
             <%  current_user.reservations.each do |reservation| %>
               <div class="card-trip" >
@@ -33,36 +31,35 @@
                     Pending
                   <% end %>
                 </p>
+                <%= link_to "Details", event_path(reservation.event), class: "btn btn-flat m-2 stretched-link" %>
               </div>
             <% end %>
           </div>
           <%= link_to "Find a event", events_path, class: "btn btn-ghost" %>
-      </div>
-
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-        <div class="cards" >
-        <% current_user.events.each do |event| %>
+        </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div class="cards" >
+            <% current_user.events.each do |event| %>
               <div class="card-trip">
-                  <% if event.photo.present? %>
-                    <%= cl_image_tag(event.photo) %>
-                  <% else %>
-                    <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
-                  <% end %>
-                      <h2 class="m-3"><%= event.name %></h2>
-                      <p class="m-3">Date: <%= event.date %></p>
+                <% if event.photo.present? %>
+                  <%= cl_image_tag(event.photo) %>
+                <% else %>
+                  <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
+                <% end %>
+                <h2 class="m-3"><%= event.name %></h2>
+                <p class="m-3">Date: <%= event.date %></p>
+                <%= link_to "Details", event_path(event), class: "btn btn-flat m-2 stretched-link" %>
                 <!-- participants -->
               </div>
             <% end %>
           </div>
           <div class="my-3"><%= link_to "Add a event", new_event_path, class: "btn btn-ghost" %></div>
+        </div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <%= link_to "Find a event", events_path, class: "btn btn-ghost" %>
+        </div>
       </div>
-
-      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-        <%= link_to "Find a event", events_path, class: "btn btn-ghost" %>
+      <!-- TAB -->
+      <div class="col-1">
       </div>
     </div>
-    <!-- TAB -->
-
-    <div class="col-1">
-  </div>
-</div>
