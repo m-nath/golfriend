@@ -85,7 +85,7 @@
           <% if event.user.photo.present? %>
             <%= cl_image_tag event.user.photo, class:"card-show-user avatar-bordered" %>
           <% else %>
-            <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered" %>
+            <%= image_tag "birdie.png", class:"card-show-user avatar-bordered" %>
           <% end %>
           <%= link_to "Details", event_path(event), class: "btn btn-flat stretched-link" %>
         </div>
