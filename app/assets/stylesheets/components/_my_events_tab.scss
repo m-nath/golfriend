@@ -1,0 +1,46 @@
+
+#pills-tab {
+  width: 100%
+}
+
+#pills-home-tab, #pills-profile-tab, #pills-contact-tab {
+  background-color: $green;
+}
+
+#pills-home-tab, #pills-profile-tab, #pills-contact-tab {
+  background-color: $green;
+}
+
+#pills-home-tab:hover, #pills-profile-tab:hover, #pills-contact-tab:hover {
+  background-color: $light-green;
+}
+
+
+.pills-home-tab .nav-item {
+  background-color: $white;
+
+}
+
+.events-tab {
+  width: 100%;
+}
+
+#home-tab, #profile-tab, #contact-tab {
+  width: 120px;
+  height: 40px;
+  background-color: $white;
+  color: $black;
+}
+
+#home-tab:hover, #profile-tab:hover, #contact-tab:hover {
+  background-color: $dark-gray;
+  transform: translateY(-5px);
+}
+
+#home-tab:checked {
+  background-color: $dark-gray;
+}
+
+#profile-tab:checked {
+  background-color: $dark-gray;
+}
