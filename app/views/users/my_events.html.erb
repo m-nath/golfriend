@@ -31,7 +31,7 @@
                     Pending
                   <% end %>
                 </p>
-                <%= link_to "Details", event_path(reservation.event), class: "btn btn-flat m-2 stretched-link" %>
+                <%= link_to "Details", event_path(reservation.event), class: "btn btn-flat m-2" %>
               </div>
             <% end %>
           </div>
@@ -48,7 +48,7 @@
                 <% end %>
                 <h2 class="m-3"><%= event.name %></h2>
                 <p class="m-3">Date: <%= event.date %></p>
-                <%= link_to "Details", event_path(event), class: "btn btn-flat m-2 stretched-link" %>
+                <%= link_to "Details", event_path(event), class: "btn btn-flat m-2" %>
                 <!-- participants -->
               </div>
             <% end %>
