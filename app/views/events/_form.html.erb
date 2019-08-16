@@ -12,7 +12,8 @@
     <%= f.input :photo_cache, as: :hidden %>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions d-flex justify-content-between">
     <%= f.button :submit, class: "btn-flat" %>
+    <%= link_to 'Home', events_path, class: "back-button"%>
   </div>
 <% end %>

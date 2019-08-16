@@ -47,3 +47,18 @@
   background: $green;
   color: white;
 }
+
+.back-button {
+  color: #4A4A4A;
+  padding: 3px 24px;
+  border: 1px solid #4A4A4A;
+  border-radius: 5px;
+  font-weight: lighter;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.back-button:hover {
+  background: $green;
+  color: white;
+}
