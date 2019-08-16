@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   has_many :reservations
   has_many :messages
+  has_many :commented_users, :through => :messages, :source =>  :user
   belongs_to :user
 
   validates :name, presence: true
@@ -14,10 +15,10 @@ class Event < ApplicationRecord
 
   pg_search_scope :global_search,
     against: [ :name, :location, :description ],
-    associated_against: {
-      user: [ :first_name, :last_name ]
-    },
-    using: {
-      tsearch: { prefix: true }
-    }
+  associated_against: {
+    user: [ :first_name, :last_name ]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
 end

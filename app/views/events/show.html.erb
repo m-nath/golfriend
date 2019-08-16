@@ -24,7 +24,11 @@
           </div>
           <div class="d-flex flex-column">
             <!-- <img src="avatar.jpg" class="card-show-user avatar-bordered" /> -->
-            <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered" %>
+            <% if @event.user.photo.present? %>
+              <%= cl_image_tag @event.user.photo, class:"card-show-user avatar-bordered" %>
+            <% else %>
+              <%= image_tag "avatar.jpg", class:"card-show-user avatar-bordered" %>
+            <% end %>
             <p class="card-show-username"><%= @event.user.first_name %> <%= @event.user.last_name %></p>
           </div>
         </div>

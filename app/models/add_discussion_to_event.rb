@@ -1,2 +1,0 @@
-class AddDiscussionToEvent < ApplicationRecord
-end

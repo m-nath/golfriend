@@ -1,7 +1,7 @@
 <!-- here is the big banner -->
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "banner.jpg" %>')">
   <div class="banner-flex">
-    <% if user_signed_in? %>
+    <% if user_signed_in? && !current_user.reserved_events.empty? %>
       <div class="col">
         <div class="card-event">
           <div class="card-event-infos">
@@ -14,6 +14,8 @@
           </div>
         </div>
       </div>
+    <% end %>
+    <% if user_signed_in? && !current_user.events.empty? %>
       <div class="col">
         <div class="card-event">
           <div class="card-event-infos">
