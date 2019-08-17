@@ -21,17 +21,16 @@
   object-fit: cover;
 }
 
-.card-event h2 {
-  font-size: 16px;
+.card-event h1 {
   font-weight: bold;
-  margin: 0;
-  color: black;
+  padding-bottom: 5px;
+  color: $black;
 }
 
 .card-event p {
   font-size: 12px;
   color: black;
-  margin: 0;
+  margin: 0px;
 }
 
 .card-event .card-event-infos {
@@ -50,13 +49,11 @@
 }
 
 .one-button {
-  margin-top: 15px;
   margin-left: 360px;
   height: 100%;
 }
 
 .buttons {
-  margin-top: 15px;
   margin-left: 220px;
   height: 100%;
 }
