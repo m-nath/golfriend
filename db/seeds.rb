@@ -49,8 +49,22 @@ huishu = User.create!(
   remote_photo_url: "https://res.cloudinary.com/dxouryvao/image/upload/v1566010222/huishu.jpg"
 )
 
+avatar =
+  ["https://res.cloudinary.com/dxouryvao/image/upload/v1566013543/golfer3_mpmiht.jpg",
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1566013637/golfer2_rb7hoz.jpg",
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1566013845/golfer5_iy7mis.jpg",
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1566014107/golfer4_enxcae.png",
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1566014146/golfer8_riqpjq.jpg",
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1566014171/golfer10_rj6yav.jpg",
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1566014198/golfer1_lmm74y.jpg",
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1566014223/golfer7_vrsmla.jpg",
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1566014255/golfer9_qag7i1.jpg",
+   "http://res.cloudinary.com/dxouryvao/image/upload/v1566014380/golfer11_epeiwq.jpg",
+   "http://res.cloudinary.com/dxouryvao/image/upload/v1566015001/golfer12_cqqf30.jpg"
+   ]
+
 10.times do
-  User.create!(email: Faker::Internet.email, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "123123")
+  User.create!(email: Faker::Internet.email, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "123123", remote_photo_url: avatar.sample)
 end
 
 puts "added #{User.count} users."
