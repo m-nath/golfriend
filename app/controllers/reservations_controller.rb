@@ -12,10 +12,14 @@ class ReservationsController < ApplicationController
 
   def update
     @reservation = Reservation.find(params[:id])
+    # @event = @reservation.event
+    authorize @reservation
+    # @reservation.confirmed = !@reservation.confirmed
     @reservation.update(reservation_params)
-    @event.user = current_user
-    authorize @event
-    redirect_to event_path(@event)
+    # @reservation.update(reservation_params)
+    # @event.user = current_user
+    # authorize @event
+    redirect_to event_path(@reservation.event)
   end
 
   def destroy
@@ -30,6 +34,6 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:user_id, :event_id)
+    params.require(:reservation).permit(:user_id, :event_id, :confirmed)
   end
 end
