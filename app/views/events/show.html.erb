@@ -90,30 +90,75 @@
       <!-- Right 1/3 here  -->
       <div class = "col-4">
         <div class = "d-flex justify-content-start align-self-start">
-          <% if user_signed_in? && current_user.reserved_events.include?(@event) %>
-            <div class = "text-center btn-big-flat m-2"><%= link_to reservation_path(@reservation), method: :delete, data: { confirm: "You have cancelled the booking of this event" } do %>Cancel my booking<% end %>
-            </div>
-          <% else %>
-            <div class = "text-center btn-big-flat m-2"><%= link_to event_reservations_path(@event, reservation: { :event_id => @event.id }), method: :post, data: { confirm: "You have booked this event, please wait for the host`s confirmation" } do %>Book this event<% end %>
-            </div>
-          <% end %>
+          <% if user_signed_in? && current_user == @event.user %>
 
 
-          <% if user_signed_in? && current_user.interested_events.include?(@event) %>
-            <div class = "text-center btn-big-flat m-2"><%= link_to interest_path(@interest), method: :delete, data: { confirm: "You have removed this event from your interest list" } do %>remove interest<% end %>
-            </div>
           <% else %>
-            <div class = "text-center btn-big-flat m-2"><%= link_to event_interests_path(@event), method: :post, data: { confirm: "You have saved this event in your interest list" } do %>Interested<% end %>
-            </div>
+
+            <% if user_signed_in? && current_user.reserved_events.include?(@event) &&current_user != @event.user %>
+              <div class = "text-center btn-big-flat m-2"><%= link_to reservation_path(@reservation), method: :delete, data: { confirm: "You have cancelled the booking of this event" } do %>Cancel my booking<% end %>
+              </div>
+            <% else %>
+              <div class = "text-center btn-big-flat m-2"><%= link_to event_reservations_path(@event, reservation: { :event_id => @event.id }), method: :post, data: { confirm: "You have booked this event, please wait for the host`s confirmation" } do %>Book this event<% end %>
+              </div>
+            <% end %>
+
+            <% if user_signed_in? && current_user.interested_events.include?(@event) %>
+              <div class = "text-center btn-big-flat m-2"><%= link_to interest_path(@interest), method: :delete, data: { confirm: "You have removed this event from your interest list" } do %>remove interest<% end %>
+              </div>
+            <% else %>
+              <div class = "text-center btn-big-flat m-2"><%= link_to event_interests_path(@event), method: :post, data: { confirm: "You have saved this event in your interest list" } do %>Interested<% end %>
+              </div>
+            <% end %>
           <% end %>
 
         </div>
+
+
         <div class="mx-2 mt-3">
-          <% if policy(@event).edit? %>
+          <% if policy(@event).edit? && current_user== @event.user%>
             <div class = "text-center btn-ghost-square m-2"><%= link_to "Edit", edit_event_path(@event) %></div>
-            <div class = "text-center btn-ghost-square m-2"><%= link_to event_path(@event), method: :delete, data: { confirm: "Are you sure?" } do %>Delete Event<% end %>
+            <div class = "text-center btn-ghost-square m-2"><%= link_to event_path(@event), method: :delete, data: { confirm: "Are you sure about delete this event?" } do %>Delete Event<% end %>
             </div>
-          <% end %>
+            <div class="mx-2 mt-3">
+
+            <h6>Participants</h6>
+            <div class="d-flex flex-column">
+              <% @event.reservations.each do |reservation| %>
+                <div class="d-flex flex-row align-self-start">
+                  <%= cl_image_tag reservation.user.photo, class:"card-show-user avatar-bordered-small m-2" %>
+                  <h6 class="m-2 pt-2"><%= reservation.user.first_name + " " + reservation.user.last_name %></h6>
+
+                  <%#= link_to "Confirm", reservation_path(@reservation), method: :put, class: "btn" %>
+                  <div class="m-2 pt-2">
+                    <% if reservation.confirmed==false %>
+                      <div class="d-flex">
+                        <%= simple_form_for(reservation) do |f| %>
+                            <%= f.input :confirmed, as: :hidden, input_html: { value: true } %>
+                            <%= f.submit "confirm", class: "btn-flat" %>
+                        <% end %>
+                        <%= simple_form_for(reservation) do |f| %>
+                            <%= f.input :confirmed, as: :hidden, input_html: { value: nil } %>
+                            <%= f.submit "reject", class: "btn-flat" %>
+                        <% end %>
+                      </div>
+                    <% elsif reservation.confirmed ==true%>
+                      <h6>confirmed</h6>
+                    <% else %>
+                      <h6>rejected</h6>
+                    <% end %>
+                  </div>
+
+
+
+                </div>
+              <% end %>
+            </div>
+
+
+
+
+          <% else %>
           <div class="mx-2 mt-3">
             <h6>Participants</h6>
             <div class="d-flex flex-column">
@@ -124,8 +169,8 @@
                   <%= image_tag "birdie.png", class:"card-show-user avatar-bordered-small m-2" %>
                 <% end %>
                 <h6 class="m-2 pt-2"><%= @event.user.first_name %> <%= @event.user.last_name %>
-                </div>
-                <div class="d-flex flex-row align-self-start">
+              </div>
+              <div class="d-flex flex-row align-self-start">
                   <% @participants.each do |p| %>
                     <!-- <div class="d-flex flex-row align-self-start"> -->
                     <% if p.photo.present? %>
@@ -137,6 +182,7 @@
                   </div>
                 </div>
               </div>
+            <% end %>
             <% end %>
             <!-- above is participates -->
           </div>

@@ -72,6 +72,30 @@
           <div class="my-3"><%= link_to "Add a event", new_event_path, class: "btn btn-ghost" %></div>
         </div>
         <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <div class="cards" >
+
+            <%  current_user.interests.each do |interest| %>
+              <div class="card-trip" >
+                <% if interest.event.photo.present? %>
+                  <%= cl_image_tag(interest.event.photo) %>
+                <% else %>
+                  <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
+                <% end %>
+                <h2 class="m-3"><%= interest.event.name %></h2>
+                <p class="m-3">Date: <%= interest.event.date %></p>
+
+                <div class="d-flex m-2">
+                  <div> <%= link_to "Details", event_path(interest.event), class: "btn btn-flat m-2" %></div>
+                  <div>
+                    <%= link_to interest_path(interest), method: :delete, data: { confirm: "Do you really want to cancel the interest?" } do %>
+                    <div class = "btn btn-flat m-2">remove interest</div>
+                  <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+
+          </div>
           <div class="my-3"><%= link_to "Find a event", events_path, class: "btn btn-ghost" %></div>
         </div>
     </div>
