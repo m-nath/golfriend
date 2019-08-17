@@ -90,11 +90,12 @@
                     <%= link_to interest_path(interest), method: :delete, data: { confirm: "Do you really want to cancel the interest?" } do %>
                     <div class = "btn btn-flat m-2">remove interest</div>
                   <% end %>
+                  <%= cl_image_tag interest.user.photo, class:"card-show-user avatar-bordered" %>
                   </div>
                 </div>
               </div>
-            <% end %>
 
+            <% end %>
           </div>
           <div class="my-3"><%= link_to "Find a event", events_path, class: "btn btn-ghost" %></div>
         </div>
