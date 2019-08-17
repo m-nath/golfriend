@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "seed started.. for users and events"
+puts "seed started.. for users and events.."
 
 Message.delete_all if Rails.env.development?
 Reservation.delete_all if Rails.env.development?
