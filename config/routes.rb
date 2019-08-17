@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :reservations, only:[:create]
     resources :messages, only:[:create]
+    resources :interests, only:[:create]
   end
   resources :reservations, only:[:destroy, :update]
 

@@ -29,6 +29,8 @@
                 <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle card-show-user avatar-bordered", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <p class="text-white"><%= current_user.first_name %> <%= current_user.last_name %></p>
               <% else %>
+
+
                 <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <p class="text-white"><%= current_user.first_name %> <%= current_user.last_name %></p>
               <% end %>
@@ -37,12 +39,16 @@
                 <%= link_to "My Events", my_events_path, class: "dropdown-item" %>
                 <%= link_to "Add an Event", new_event_path, class: "dropdown-item" %>
                 <%= link_to "All events", events_path, class: "dropdown-item" %>
+
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
             </li>
           <% else %>
             <li class="nav-item">
+
+
               <%= link_to "Login", new_user_session_path, class: "nav-white-link nav-link" %>
+
               <i class="fas fa-search"></i>
             </li>
           <% end %>

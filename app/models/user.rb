@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :messages
   has_many :commented_events, :through => :messages, :source => :event
 
+  has_many :interests
+  has_many :interested_events, :through => :interests, :source => :event
+
   has_many :events #host
 
   validates :first_name, presence: true
