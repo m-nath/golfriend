@@ -6,7 +6,7 @@
         <div class="card-event">
           <div class="card-event-infos">
             <div>
-              <h2 class="mb-2">Next event you signed up</h2>
+              <h1 class="card-title">Next event you signed up</h1>
               <h6><%= link_to current_user.reserved_events.first.name, event_path(current_user.reserved_events.first) %></h6>
               <p>Hosted by <%= current_user.reservations.first.event.user.first_name%></p>
               <p>Date: <%= current_user.reservations.first.event.date%></p>
@@ -23,7 +23,7 @@
         <div class="card-event">
           <div class="card-event-infos">
             <div>
-              <h2 class="mb-2">Event you are hosting</h2>
+              <h1 class="card-title">Event you are hosting</h1>
               <h6><%= link_to current_user.events.first.name, event_path(current_user.events.first) %></h6>
               <p>Date: <%= current_user.events.first.date%></p>
               <% if current_user.events.first.participants %>
