@@ -97,7 +97,16 @@
             <div class = "text-center btn-big-flat m-2"><%= link_to event_reservations_path(@event, reservation: { :event_id => @event.id }), method: :post, data: { confirm: "You have booked this event, please wait for the host`s confirmation" } do %>Book this event<% end %>
             </div>
           <% end %>
-          <div class = "text-center btn-big-flat m-2">Interested</div>
+
+
+          <% if user_signed_in? && current_user.interested_events.include?(@event) %>
+            <div class = "text-center btn-big-flat m-2"><%= link_to interest_path(@interest), method: :delete, data: { confirm: "You have removed this event from your interest list" } do %>remove interest<% end %>
+            </div>
+          <% else %>
+            <div class = "text-center btn-big-flat m-2"><%= link_to event_interests_path(@event), method: :post, data: { confirm: "You have saved this event in your interest list" } do %>Interested<% end %>
+            </div>
+          <% end %>
+
         </div>
         <div class="mx-2 mt-3">
           <% if policy(@event).edit? %>

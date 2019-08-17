@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   has_many :participants, :through => :reservations, :source => :user
   has_many :messages, dependent: :destroy
   has_many :commented_users, :through => :messages, :source =>  :user
+  has_many :interested_users, :through => :interests, :source =>  :user
+
   belongs_to :user
 
   validates :name, presence: true

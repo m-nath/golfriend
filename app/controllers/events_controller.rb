@@ -14,6 +14,8 @@ class EventsController < ApplicationController
     @message = Message.new
     @participants = @event.participants
     @reservation = Reservation.where(user: current_user, event: @event).first
+    @interest = Interest.where(user: current_user, event: @event).first
+
   end
 
   def new
@@ -49,7 +51,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
     @event.destroy
-    redirect_to events_path
+    redirect_to my_events_path
   end
 
   private
