@@ -96,10 +96,14 @@
           <% else %>
 
             <% if user_signed_in? && current_user.reserved_events.include?(@event) &&current_user != @event.user %>
-              <div class = "text-center btn-big-flat m-2"><%= link_to reservation_path(@reservation), method: :delete, data: { confirm: "You have cancelled the booking of this event" } do %>Cancel my booking<% end %>
+              <div><%= link_to reservation_path(@reservation), method: :delete, data: { confirm: "You have cancelled the booking of this event" } do %>Cancel my booking<% end %>
               </div>
             <% else %>
-              <div class = "text-center btn-big-flat m-2"><%= link_to event_reservations_path(@event, reservation: { :event_id => @event.id }), method: :post, data: { confirm: "You have booked this event, please wait for the host`s confirmation" } do %>Book this event<% end %>
+              <div class = "text-center btn-big-flat m-2"><%= link_to event_reservations_path(@event, reservation: { :event_id => @event.id }), method: :post, data: { confirm: "You have booked this event, please wait for the host`s confirmation" } do %>
+                <div class = "text-center btn-big-flat m-2">
+                  Book this event
+                </div>
+                <% end %>
               </div>
             <% end %>
 
