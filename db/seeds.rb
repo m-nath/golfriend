@@ -53,13 +53,14 @@ avatar =
   ["https://res.cloudinary.com/dxouryvao/image/upload/v1566013543/golfer3_mpmiht.jpg",
    "https://res.cloudinary.com/dxouryvao/image/upload/v1566013637/golfer2_rb7hoz.jpg",
    "https://res.cloudinary.com/dxouryvao/image/upload/v1566013845/golfer5_iy7mis.jpg",
-   "https://res-console.cloudinary.com/dxouryvao/thumbnails/transform/v1/image/upload//v1566014107/Z29sZmVyNF9lbnhjYWU=/drilldown",
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1566014107/golfer4_enxcae.png",
    "https://res.cloudinary.com/dxouryvao/image/upload/v1566014146/golfer8_riqpjq.jpg",
-   "https://res-console.cloudinary.com/dxouryvao/thumbnails/transform/v1/image/upload//v1566014171/Z29sZmVyMTBfcmo2eWF2/drilldown",
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1566014171/golfer10_rj6yav.jpg",
    "https://res.cloudinary.com/dxouryvao/image/upload/v1566014198/golfer1_lmm74y.jpg",
-   "https:///res-console.cloudinary.com/dxouryvao/thumbnails/transform/v1/image/upload/v1566014223/https:///res-console.cloudinary.com/dxouryvao/thumbnails/transform/v1/image/upload//v1566014223/Z29sZmVyN192cnNtbGE=/drilldown",
-   "https:///res-console.cloudinary.com/dxouryvao/thumbnails/transform/v1/image/upload/v1566014255/https:///res-console.cloudinary.com/dxouryvao/thumbnails/transform/v1/image/upload//v1566014255/Z29sZmVyOV9xYWc3aTE=/drilldown",
-   "https:///res-console.cloudinary.com/dxouryvao/thumbnails/transform/v1/image/upload/v1566014380/https:///res-console.cloudinary.com/dxouryvao/thumbnails/transform/v1/image/upload//v1566014380/Z29sZmVyMTFfZXBlaXdx/drilldown"
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1566014223/golfer7_vrsmla.jpg",
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1566014255/golfer9_qag7i1.jpg",
+   "http://res.cloudinary.com/dxouryvao/image/upload/v1566014380/golfer11_epeiwq.jpg",
+   "http://res.cloudinary.com/dxouryvao/image/upload/v1566015001/golfer12_cqqf30.jpg"
    ]
 
 10.times do
