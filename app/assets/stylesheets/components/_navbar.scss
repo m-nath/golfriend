@@ -14,12 +14,13 @@
 .logo {
   color: $white;
 }
-
-.nav-link {
-  color: white !important;
-  border-bottom: 1px solid white;
-  margin: 3px;
-  margin-right:25px;
+.navbar-nav {
+  .nav-link {
+    color: white !important;
+    border-bottom: 1px solid white;
+    margin: 3px;
+    margin-right: 25px;
+  }
 }
 
 .navbar-lewagon h1 {

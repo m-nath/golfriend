@@ -1,11 +1,11 @@
-<div class="container m-5">
+<div class="container my-5">
 
     <div id="events-tab">
       <h3 class="my-1">My Events</h3>
       <!-- TAB -->
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="mx-1 event-nav nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Events I signed up</a>
+          <a class="mx-1 nav-item nav-link active event-nav" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Events I signed up</a>
           <a class="mx-1 event-nav nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Events I host</a>
           <a class="mx-1 event-nav nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Events I'm interested in</a>
         </div>
@@ -31,13 +31,14 @@
                     Pending
                   <% end %>
                 </p>
-                <div class="d-flex m-2">
+                <div class="d-flex justify-content-around m-2">
                   <div> <%= link_to "Details", event_path(reservation.event), class: "btn btn-flat m-2" %></div>
                   <div>
                     <%= link_to reservation_path(reservation), method: :delete, data: { confirm: "Do you really want to cancel the reservation?" } do %>
-                    <div class = "btn btn-flat m-2">Cancel my reservation</div>
-                  <% end %>
+                        <div class = "btn btn-flat btn-flat-tab m-2">Cancel my reservation</div>
+                    <% end %>
                   </div>
+                  <div><%= cl_image_tag reservation.event.user.photo, class:"card-show-user avatar-bordered" %></div>
                 </div>
               </div>
             <% end %>
@@ -62,6 +63,7 @@
                     <div class = "btn btn-flat m-2">Delete</div>
                     <% end %>
                   </div>
+                  <%= cl_image_tag event.user.photo, class:"card-show-user avatar-bordered" %>
                 </div>
                 <!-- participants -->
               </div>
