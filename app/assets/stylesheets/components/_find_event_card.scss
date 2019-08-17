@@ -6,8 +6,6 @@
 
 .card-event {
   height: 180px;
-  width: 500px;
-  margin-left: 60px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -31,6 +29,9 @@
   font-size: 12px;
   color: black;
   margin: 0px;
+}
+.card-event-home {
+  padding: 16px;
 }
 
 .card-event .card-event-infos {

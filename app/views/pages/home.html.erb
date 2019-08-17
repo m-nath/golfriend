@@ -1,27 +1,28 @@
 <!-- here is the big banner -->
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_path "banner.jpg" %>')">
-  <div class="banner-flex mt-5">
-    <% if user_signed_in? && !current_user.reserved_events.empty? %>
-      <div class="col">
-        <div class="card-event">
-          <div class="card-event-infos">
+  <div class="row banner-flex mx-5">
+    <div class="col-lg-6 col-md-12">
+      <% if user_signed_in? && !current_user.reserved_events.empty? %>
+        <div class="card-event mx-5 mb-2">
+          <div class="card-event-home">
             <div>
               <h1 class="card-title">Next event you signed up</h1>
               <h6><%= link_to current_user.reserved_events.first.name, event_path(current_user.reserved_events.first) %></h6>
               <p>Hosted by <%= current_user.reservations.first.event.user.first_name%></p>
               <p>Date: <%= current_user.reservations.first.event.date%></p>
-              <div class="one-button">
-                <%= link_to "My events", my_events_path, class: "btn btn-ghost" %>
+              <div class="d-flex">
+                <%= link_to "My events", my_events_path, class: "btn btn-ghost-home" %>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-    <% if user_signed_in? && !current_user.events.empty? %>
-      <div class="col">
-        <div class="card-event">
-          <div class="card-event-infos">
+      <% end %>
+    </div>
+
+    <div class="col-lg-6 col-md-12">
+      <% if user_signed_in? && !current_user.events.empty? %>
+        <div class="card-event mx-5 mt-2">
+          <div class="card-event-home">
             <div>
               <h1 class="card-title">Event you are hosting</h1>
               <h6><%= link_to current_user.events.first.name, event_path(current_user.events.first) %></h6>
@@ -33,15 +34,15 @@
                   <% end %>
                 </p>
               <% end %>
-              <div class="buttons">
-                <%= link_to "My events", my_events_path, class: "btn btn-ghost" %>
+              <div class="">
+                <%= link_to "My events", my_events_path, class: "btn btn-ghost-home" %>
                 <%= link_to "Create an event", new_event_path, class: "btn btn-flat" %>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 <!-- here is search bar & map -->

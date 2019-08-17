@@ -13,6 +13,17 @@
   opacity: 1;
 }
 
+.btn-ghost-home {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 4px 8px;
+  margin: 8px;
+  border-radius: 10px;
+  font-weight: lighter;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
 .btn-ghost-square {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
