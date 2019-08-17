@@ -17,8 +17,14 @@
 
 .nav-link {
   color: white !important;
+  border-bottom: 1px solid white;
+  margin: 3px;
+  margin-right:25px;
 }
 
+.navbar-lewagon h1 {
+  margin: auto;
+}
 
 
 
@@ -48,7 +54,3 @@
 //   margin: 30px;
 // }
 
-// .navbar-lewagon h3 {
-//   color: $white;
-//   margin: auto;
-// }
