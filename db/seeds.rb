@@ -11,6 +11,7 @@ puts "seed started.. for users and events.."
 Message.delete_all if Rails.env.development?
 Reservation.delete_all if Rails.env.development?
 Interest.delete_all if Rails.env.development?
+
 Event.delete_all if Rails.env.development?
 User.delete_all if Rails.env.development?
 
@@ -20,7 +21,7 @@ nath = User.create!(
   first_name: "Nath",
   last_name: "M",
   admin: true,
-  photo: "nath.jpg"
+  remote_photo_url: "https://res.cloudinary.com/dxouryvao/image/upload/v1566010222/nath.jpg"
 )
 
 christee = User.create!(
@@ -29,7 +30,7 @@ christee = User.create!(
   first_name: "Christee",
   last_name: "Song",
   admin: true,
-  photo: "christee.jpg"
+  remote_photo_url: "https://res.cloudinary.com/dxouryvao/image/upload/v1566010222/christee.jpg"
 )
 
 shohei = User.create!(
@@ -37,7 +38,7 @@ shohei = User.create!(
   password: "123123",
   first_name: "Shohei",
   last_name: "Okubo",
-  photo: "shohei.jpg"
+  remote_photo_url: "https://res.cloudinary.com/dxouryvao/image/upload/v1566010933/shohei.jpg"
 )
 
 huishu = User.create!(
@@ -45,7 +46,7 @@ huishu = User.create!(
   password: "123123",
   first_name: "Huishu",
   last_name: "Jia",
-  photo: "huishu.jpg"
+  remote_photo_url: "https://res.cloudinary.com/dxouryvao/image/upload/v1566010222/huishu.jpg"
 )
 
 10.times do
