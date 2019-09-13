@@ -129,7 +129,7 @@
                   <h6 class="m-2 pt-2"><%= reservation.user.first_name + " " + reservation.user.last_name %></h6>
                   <%#= link_to "Confirm", reservation_path(@reservation), method: :put, class: "btn" %>
                   <div class="m-2 pt-2">
-                    <% if reservation.confirmed==false %>
+                    <% if reservation.confirmed? ==false %>
                       <div class="d-flex">
                         <%= simple_form_for(reservation) do |f| %>
                           <%= f.input :confirmed, as: :hidden, input_html: { value: true } %>
@@ -140,7 +140,7 @@
                           <%= f.submit "reject", class: "btn-flat" %>
                         <% end %>
                       </div>
-                    <% elsif reservation.confirmed ==true%>
+                    <% elsif reservation.confirmed? ==true%>
                       <h6>confirmed</h6>
                     <% else %>
                       <h6>rejected</h6>
