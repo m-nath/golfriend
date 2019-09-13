@@ -1,105 +1,99 @@
 <div class="container my-5">
-
-    <div id="events-tab">
-      <h3 class="my-1">My Events</h3>
-      <!-- TAB -->
-      <nav>
-        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="mx-1 nav-item nav-link active event-nav" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Events I signed up</a>
-          <a class="mx-1 event-nav nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Events I host</a>
-          <a class="mx-1 event-nav nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Events I'm interested in</a>
-        </div>
-      </nav>
-
-      <!-- CONTENT -->
-      <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-          <div class="cards" >
-            <%  current_user.reservations.each do |reservation| %>
-              <div class="card-trip" >
-                <% if reservation.event.photo.present? %>
-                  <%= cl_image_tag(reservation.event.photo) %>
+  <div id="events-tab">
+    <h3 class="my-1">My Events</h3>
+    <!-- TAB -->
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="mx-1 nav-item nav-link active event-nav" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Events I signed up</a>
+        <a class="mx-1 event-nav nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Events I host</a>
+        <a class="mx-1 event-nav nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Events I'm interested in</a>
+      </div>
+    </nav>
+    <!-- CONTENT -->
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="cards" >
+          <%  current_user.reservations.each do |reservation| %>
+            <div class="card-trip" >
+              <% if reservation.event.photo.present? %>
+                <%= cl_image_tag(reservation.event.photo) %>
+              <% else %>
+                <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
+              <% end %>
+              <h2 class="m-3"><%= reservation.event.name %></h2>
+              <p class="m-3">Date: <%= reservation.event.date %></p>
+              <p class="m-3">Status:
+                <% if reservation.confirmed? == true %>
+                  Confirmed
                 <% else %>
-                  <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
+                  Pending
                 <% end %>
-                <h2 class="m-3"><%= reservation.event.name %></h2>
-                <p class="m-3">Date: <%= reservation.event.date %></p>
-                <p class="m-3">Status:
-                  <% if reservation.confirmed? == true %>
-                    Confirmed
-                  <% else %>
-                    Pending
+              </p>
+              <div class="d-flex m-2">
+                <div> <%= link_to "Details", event_path(reservation.event), class: "btn btn-flat m-2" %></div>
+                <div>
+                  <%= link_to reservation_path(reservation), method: :delete, data: { confirm: "Do you really want to cancel the reservation?" } do %>
+                    <div class = "btn btn-flat btn-flat-tab m-2">Cancel</div>
                   <% end %>
-                </p>
-                <div class="d-flex justify-content-around m-2">
-                  <div> <%= link_to "Details", event_path(reservation.event), class: "btn btn-flat m-2" %></div>
-                  <div>
-                    <%= link_to reservation_path(reservation), method: :delete, data: { confirm: "Do you really want to cancel the reservation?" } do %>
-                        <div class = "btn btn-flat btn-flat-tab m-2">Cancel my reservation</div>
-                    <% end %>
-                  </div>
-                  <div><%= cl_image_tag reservation.event.user.photo, class:"card-show-user avatar-bordered" %></div>
                 </div>
+                <div><%= cl_image_tag reservation.event.user.photo, class:"card-show-user avatar-bordered" %></div>
               </div>
-            <% end %>
-          </div>
-          <div class="my-3"><%= link_to "Find a event", events_path, class: "btn btn-ghost" %></div>
+            </div>
+          <% end %>
         </div>
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-          <div class="cards" >
-            <% current_user.events.each do |event| %>
-              <div class="card-trip">
-                <% if event.photo.present? %>
-                  <%= cl_image_tag(event.photo) %>
-                <% else %>
-                  <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
-                <% end %>
-                <h2 class="m-3"><%= event.name %></h2>
-                <p class="m-3">Date: <%= event.date %></p>
-                <div class="d-flex m-2">
-                  <div><%= link_to "Details", event_path(event), class: "btn btn-flat m-2" %></div>
-                  <div>
-                    <%= link_to event_path(event), method: :delete, data: { confirm: "Do you really want to delete the event?" } do %>
+        <div class="my-3"><%= link_to "Find a event", events_path, class: "btn btn-ghost" %></div>
+      </div>
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="cards" >
+          <% current_user.events.each do |event| %>
+            <div class="card-trip">
+              <% if event.photo.present? %>
+                <%= cl_image_tag(event.photo) %>
+              <% else %>
+                <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
+              <% end %>
+              <h2 class="m-3"><%= event.name %></h2>
+              <p class="m-3">Date: <%= event.date %></p>
+              <div class="d-flex m-2">
+                <div><%= link_to "Details", event_path(event), class: "btn btn-flat m-2" %></div>
+                <div>
+                  <%= link_to event_path(event), method: :delete, data: { confirm: "Do you really want to delete the event?" } do %>
                     <div class = "btn btn-flat m-2">Delete</div>
-                    <% end %>
-                  </div>
-                  <%= cl_image_tag event.user.photo, class:"card-show-user avatar-bordered" %>
+                  <% end %>
                 </div>
-                <!-- participants -->
+                <%= cl_image_tag event.user.photo, class:"card-show-user avatar-bordered" %>
               </div>
-            <% end %>
-          </div>
-          <div class="my-3"><%= link_to "Add a event", new_event_path, class: "btn btn-ghost" %></div>
+              <!-- participants -->
+            </div>
+          <% end %>
         </div>
-        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-          <div class="cards" >
-
-            <%  current_user.interests.each do |interest| %>
-              <div class="card-trip" >
-                <% if interest.event.photo.present? %>
-                  <%= cl_image_tag(interest.event.photo) %>
-                <% else %>
-                  <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
-                <% end %>
-                <h2 class="m-3"><%= interest.event.name %></h2>
-                <p class="m-3">Date: <%= interest.event.date %></p>
-
-                <div class="d-flex m-2">
-                  <div> <%= link_to "Details", event_path(interest.event), class: "btn btn-flat m-2" %></div>
-                  <div>
-                    <%= link_to interest_path(interest), method: :delete, data: { confirm: "Do you really want to cancel the interest?" } do %>
-                    <div class = "btn btn-flat m-2">remove interest</div>
+        <div class="my-3"><%= link_to "Add a event", new_event_path, class: "btn btn-ghost" %></div>
+      </div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <div class="cards" >
+          <%  current_user.interests.each do |interest| %>
+            <div class="card-trip" >
+              <% if interest.event.photo.present? %>
+                <%= cl_image_tag(interest.event.photo) %>
+              <% else %>
+                <img src="https://images.pexels.com/photos/424725/pexels-photo-424725.jpeg?cs=srgb&dl=active-activity-adults-424725.jpg&fm=jpg" alt="online event">
+              <% end %>
+              <h2 class="m-3"><%= interest.event.name %></h2>
+              <p class="m-3">Date: <%= interest.event.date %></p>
+              <div class="d-flex m-2">
+                <div> <%= link_to "Details", event_path(interest.event), class: "btn btn-flat m-2" %></div>
+                <div>
+                  <%= link_to interest_path(interest), method: :delete, data: { confirm: "Do you really want to cancel the interest?" } do %>
+                    <div class = "btn btn-flat m-2">Remove</div>
                   <% end %>
                   <%= cl_image_tag interest.user.photo, class:"card-show-user avatar-bordered" %>
-                  </div>
                 </div>
               </div>
-
-            <% end %>
-          </div>
-          <div class="my-3"><%= link_to "Find a event", events_path, class: "btn btn-ghost" %></div>
+            </div>
+          <% end %>
         </div>
+        <div class="my-3"><%= link_to "Find a event", events_path, class: "btn btn-ghost" %></div>
+      </div>
     </div>
-      <!-- TAB -->
-
-</div>
+    <!-- TAB -->
+  </div>
