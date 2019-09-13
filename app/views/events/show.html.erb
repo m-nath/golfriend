@@ -93,26 +93,33 @@
         <% if user_signed_in? && current_user == @event.user %>
         <% else %>
           <% if user_signed_in? && current_user.reserved_events.include?(@event) &&current_user != @event.user %>
-            <div class = "text-center btn-big-flat m-2"><%= link_to reservation_path(@reservation), method: :delete, data: { confirm: "You have cancelled the booking of this event" } do %>Cancel my booking<% end %>
-            </div>
+            <%= link_to reservation_path(@reservation), method: :delete, data: { confirm: "You have cancelled the booking of this event" } do %>
+              <div class = "btn-big-flat text-center m-2">Cancel my booking</div>
+            <% end %>
           <% else %>
-            <div class = "text-center btn-big-flat m-2"><%= link_to event_reservations_path(@event, reservation: { :event_id => @event.id }), method: :post, data: { confirm: "You have booked this event, please wait for the host`s confirmation" } do %>Book this event<% end %>
-            </div>
+            <%= link_to event_reservations_path(@event, reservation: { :event_id => @event.id }), method: :post, data: { confirm: "You have booked this event, please wait for the host`s confirmation" } do %>
+              <div class = "btn-big-flat m-2 text-center">Book Event</div>
+            <% end %>
           <% end %>
+          &nbsp;
+          &nbsp;
           <% if user_signed_in? && current_user.interested_events.include?(@event) %>
-            <div class = "text-center btn-big-flat m-2"><%= link_to interest_path(@interest), method: :delete, data: { confirm: "You have removed this event from your interest list" } do %>remove interest<% end %>
-            </div>
+            <%= link_to interest_path(@interest), method: :delete, data: { confirm: "You have removed this event from your interest list" } do %>
+              <div class = "text-center btn-big-flat m-2">Remove Interest</div>
+            <% end %>
           <% else %>
-            <div class = "text-center btn-big-flat m-2"><%= link_to event_interests_path(@event), method: :post, data: { confirm: "You have saved this event in your interest list" } do %>Interested<% end %>
-            </div>
+            <%= link_to event_interests_path(@event), method: :post, data: { confirm: "You have saved this event in your interest list" } do %>
+              <div class = "btn-big-flat text-center m-2">Interested</div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
       <div class="mx-2 mt-3">
         <% if policy(@event).edit? && current_user== @event.user%>
           <div class = "text-center btn-ghost-square m-2"><%= link_to "Edit", edit_event_path(@event) %></div>
-          <div class = "text-center btn-ghost-square m-2"><%= link_to event_path(@event), method: :delete, data: { confirm: "Are you sure about delete this event?" } do %>Delete Event<% end %>
-          </div>
+          <%= link_to event_path(@event), method: :delete, data: { confirm: "Are you sure about delete this event?" } do %>
+            <div class = "text-center btn-ghost-square m-2">Delete Event</div>
+          <% end %>
           <div class="mx-2 mt-3">
             <h6>Participants</h6>
             <div class="d-flex flex-column">
@@ -156,20 +163,20 @@
                   </div>
                   <div class="d-flex flex-row align-self-start">
                     <% @participants.each do |p| %>
-                      <!-- <div class="d-flex flex-row align-self-start"> -->
-                      <% if p.photo.present? %>
-                        <%= cl_image_tag p.photo, class:"card-show-user avatar-bordered-small m-2" %>
-                      <% else %>
-                        <%= image_tag "birdie.png", class:"card-show-user avatar-bordered-small m-2" %>
-                      <% end %>
-                      <h6 class="m-2 pt-2"><%= p.first_name + " " + p.last_name %></h6>
+                      <div class="d-flex flex-row align-self-start">
+                        <% if p.photo.present? %>
+                          <%= cl_image_tag p.photo, class:"card-show-user avatar-bordered-small m-2" %>
+                        <% else %>
+                          <%= image_tag "birdie.png", class:"card-show-user avatar-bordered-small m-2" %>
+                        <% end %>
+                        <h6 class="m-2 pt-2"><%= p.first_name + " " + p.last_name %></h6>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
               <% end %>
-            <% end %>
-            <!-- above is participates -->
+              <!-- above is participates -->
+            </div>
           </div>
         </div>
       </div>
-    </div>
