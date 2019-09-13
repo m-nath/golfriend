@@ -29,11 +29,11 @@
                   Pending
                 <% end %>
               </p>
-              <div class="d-flex justify-content-between m-2">
+              <div class="d-flex m-2">
                 <div> <%= link_to "Details", event_path(reservation.event), class: "btn btn-flat m-2" %></div>
                 <div>
                   <%= link_to reservation_path(reservation), method: :delete, data: { confirm: "Do you really want to cancel the reservation?" } do %>
-                    <div class = "btn btn-flat btn-flat-tab m-2">Cancel my reservation</div>
+                    <div class = "btn btn-flat btn-flat-tab m-2">Cancel</div>
                   <% end %>
                 </div>
                 <div><%= cl_image_tag reservation.event.user.photo, class:"card-show-user avatar-bordered" %></div>
@@ -84,7 +84,7 @@
                 <div> <%= link_to "Details", event_path(interest.event), class: "btn btn-flat m-2" %></div>
                 <div>
                   <%= link_to interest_path(interest), method: :delete, data: { confirm: "Do you really want to cancel the interest?" } do %>
-                    <div class = "btn btn-flat m-2">remove interest</div>
+                    <div class = "btn btn-flat m-2">Remove</div>
                   <% end %>
                   <%= cl_image_tag interest.user.photo, class:"card-show-user avatar-bordered" %>
                 </div>
