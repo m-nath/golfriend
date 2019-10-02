@@ -8,12 +8,19 @@
 
 puts "seed started.. for users and events.."
 
-Message.delete_all if Rails.env.development?
-Reservation.delete_all if Rails.env.development?
-Interest.delete_all if Rails.env.development?
+# Message.delete_all if Rails.env.development?
+# Reservation.delete_all if Rails.env.development?
+# Interest.delete_all if Rails.env.development?
 
-Event.delete_all if Rails.env.development?
-User.delete_all if Rails.env.development?
+# Event.delete_all if Rails.env.development?
+# User.delete_all if Rails.env.development?
+
+Message.destroy_all
+Reservation.destroy_all
+Interest.destroy_all
+
+Event.destroy_all
+User.destroy_all
 
 nath = User.create!(
   email: "m.nath1105@gmail.com",
@@ -21,7 +28,7 @@ nath = User.create!(
   first_name: "Nath",
   last_name: "M",
   admin: true,
-  remote_photo_url: "https://res.cloudinary.com/dxouryvao/image/upload/v1566010222/nath.jpg"
+  photo: open("https://res.cloudinary.com/dxouryvao/image/upload/v1566010222/nath.jpg")
 )
 
 christee = User.create!(
@@ -30,7 +37,7 @@ christee = User.create!(
   first_name: "Christee",
   last_name: "Song",
   admin: true,
-  remote_photo_url: "https://res.cloudinary.com/dxouryvao/image/upload/v1566010222/christee.jpg"
+  photo: open("https://res.cloudinary.com/dxouryvao/image/upload/v1566010222/christee.jpg")
 )
 
 shohei = User.create!(
@@ -38,7 +45,7 @@ shohei = User.create!(
   password: "123123",
   first_name: "Shohei",
   last_name: "Okubo",
-  remote_photo_url: "https://res.cloudinary.com/dxouryvao/image/upload/v1566010933/shohei.jpg"
+  photo: open("https://res.cloudinary.com/dxouryvao/image/upload/v1566010933/shohei.jpg")
 )
 
 huishu = User.create!(
@@ -46,7 +53,7 @@ huishu = User.create!(
   password: "123123",
   first_name: "Huishu",
   last_name: "Jia",
-  remote_photo_url: "https://res.cloudinary.com/dxouryvao/image/upload/v1566010222/huishu.jpg"
+  photo: open("https://res.cloudinary.com/dxouryvao/image/upload/v1566010222/huishu.jpg")
 )
 
 avatar =
@@ -57,11 +64,13 @@ avatar =
    "https://res.cloudinary.com/dxouryvao/image/upload/v1566014146/golfer8_riqpjq.jpg",
    "https://res.cloudinary.com/dxouryvao/image/upload/v1566014171/golfer10_rj6yav.jpg",
    "https://res.cloudinary.com/dxouryvao/image/upload/v1566014198/golfer1_lmm74y.jpg",
-   "https://res.cloudinary.com/dxouryvao/image/upload/v1566014223/golfer7_vrsmla.jpg",
+   "https://res.cloudinary.com/dxouryvao/image/upload/v1569512170/18881172-large_fd00sw.jpg",
    "https://res.cloudinary.com/dxouryvao/image/upload/v1566014255/golfer9_qag7i1.jpg",
    "http://res.cloudinary.com/dxouryvao/image/upload/v1566014380/golfer11_epeiwq.jpg",
    "http://res.cloudinary.com/dxouryvao/image/upload/v1566015001/golfer12_cqqf30.jpg"
    ]
+
+  puts 'generating users with photo'
 
 10.times do
   User.create!(email: Faker::Internet.email, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "123123", remote_photo_url: avatar.sample)
